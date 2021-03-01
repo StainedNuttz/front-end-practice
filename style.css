@@ -1,0 +1,91 @@
+body {
+  background-color: #a0dfe8;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body > * {
+  margin: 0 8vw;
+}
+
+nav {
+  background-color: white;
+  font-family: 'Mukta', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+#discover_more {
+  background-color: #28373a;
+  color: white;
+  border: none;
+  font-size: 20px;
+  letter-spacing: 1px;
+  width: 275px;
+  height: 4rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#sale {
+  margin: auto;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#sale h1 {
+  margin: 0;
+  margin-bottom: 2rem;
+  color: #3b3c3a;
+  font-size: 55px;
+  font-weight: bolder;
+}
+
+#sale p {
+  margin: 0;
+  color: #728a8a;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  padding-right: 20%;
+}
+
+#main {
+  background: #a0dfe8;
+  background: red;
+}
+
+#navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8vw;
+}
+
+.navbar-section > * {
+  display: flex;
+  align-items: center;
+}
+
+#navbar-buttons ul {
+  height: 30px;
+}
+
+#navbar-links li {
+  padding-left: 2em;
+}
+
+#navbar-logo {
+  margin-right: 5em;
+}
