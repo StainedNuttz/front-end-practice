@@ -1,2 +1,2 @@
-# front-end-practice
-Front-end practice
+# Welcome to my ultimate web practice repo!
+Currently learning front-end technologies
