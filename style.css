@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-color: #000000ff;
+  --secondary-color: #ffffffff;
+  --third-color: #494949ff;
+
+  /* CSS HEX */
+  --black: #000000ff;
+  --white: #ffffffff;
+  --davys-grey: #494949ff;
+
+  /* CSS HSL */
+  --black: hsla(0, 0%, 0%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+  --davys-grey: hsla(0, 0%, 29%, 1);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--background-color);
+}
+
+#wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 5rem auto;
+  grip-gap: 1rem;
+  padding-bottom: 2.5rem;
+}
+
+header {
+  font-size: 20px;
+  background: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  height: 2.5rem;
+  background: var(--secondary-color);
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+  margin: 1rem auto;
+  background: var(--secondary-color);
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.icon {
+  height: 2rem;
+}
+
+.project-container {
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  background: var(--background-color);
+  padding: 0.5rem;
+}
+
+.btn {
+  text-decoration: none;
+  color: black;
+}
+
+.project-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.project-icon-container img {
+  margin: 0 0.25rem;
+}
+
+p {
+  width: fit-content;
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.project-container:hover {
+  background: var(--secondary-color);
+  color: black;
+  box-shadow: 5px 5px 20px #222;
+}
+
+/* tablet */
+@media (max-width: 1300px) {
+  header { font-size: 14px; }
+  project-container { margin: 1rem 20vw 2rem; }
+}
+
+/* mobile */
+@media (max-width: 500px) {
+  header { padding: 0 5rem; font-size: 10px; }
+  #projects { width: 100%; }
+}

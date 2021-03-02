@@ -2,12 +2,47 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Ultimate web dev repo</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <title>Ultimate Web Dev Repo</title>
   </head>
+
   <body>
-    Hello, I am a body!
-    <a href="google-homepage/index.html">google-index</a>
-    <a href="navbar-test/index.html">navbar-index</a>
-    <a href="google-homepage">try this!</a>
+    <div id="wrapper">
+      <header>
+        <h1>Ultimate Web Dev Repo</h1>
+      </header>
+      <section id="projects">
+        <a class="btn" href="navbar-test">
+          <div class="project-container">
+            <p>Navbar</p>
+            <div class="project-icon-container">
+              <img class="icon" src="icons/html.svg"></img>
+              <img class="icon" src="icons/css.svg"></img>
+              <img class="icon" src="icons/js.svg"></img>
+            </div>
+          </div>
+        </a>
+        <a class="btn" href="google-homepage">
+          <div class="project-container">
+            <p>Google Homepage</p>
+            <div class="project-icon-container">
+              <img class="icon" src="icons/html.svg"></img>
+              <img class="icon" src="icons/css.svg"></img>
+              <img class="icon" src="icons/js.svg"></img>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <footer>
+        <p>stian &COPY; 2021</p>
+      </footer>
+    </div>
   </body>
 </html>
