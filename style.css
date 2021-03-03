@@ -5,19 +5,8 @@
 }
 
 :root {
-  --background-color: #000000ff;
-  --secondary-color: #ffffffff;
-  --third-color: #494949ff;
-
-  /* CSS HEX */
-  --black: #000000ff;
-  --white: #ffffffff;
-  --davys-grey: #494949ff;
-
-  /* CSS HSL */
-  --black: hsla(0, 0%, 0%, 1);
-  --white: hsla(0, 0%, 100%, 1);
-  --davys-grey: hsla(0, 0%, 29%, 1);
+  --secondary-color: #BFD7EA;
+  --background-color: #0B3954;
 }
 
 body {
@@ -29,7 +18,7 @@ body {
   position: relative;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 5rem auto;
+  grid-template-rows: 4rem auto;
   grip-gap: 1rem;
   padding-bottom: 2.5rem;
 }
@@ -103,9 +92,9 @@ p {
 }
 
 .project-container:hover {
-  background: var(--secondary-color);
-  color: black;
-  box-shadow: 5px 5px 20px #222;
+  background: var(--background-color);
+  box-shadow: 1px 1px 25px #fff;
+  color: cyan;
 }
 
 /* tablet */
@@ -115,7 +104,7 @@ p {
 }
 
 /* mobile */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   header { padding: 0 5rem; font-size: 10px; }
   #projects { width: 100%; }
 }
