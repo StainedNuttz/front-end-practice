@@ -33,15 +33,11 @@ nav {
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 #grid {
   display: flex;
   fill: #5f6368;
-  margin-right: 5px;
-  margin-left: 10px;
   cursor: pointer;
   padding: 10px;
 }
@@ -60,12 +56,12 @@ nav {
   border-radius: 50%;
 }
 
-.nav-section ul li {
+.nav-section .clickable li {
   margin: 0 0.5rem;
-  cursor: pointer;
 }
 
-.nav-section ul li:hover {
+.clickable li:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -87,44 +83,6 @@ main {
 #center-container > div {
   width: 100%;
   margin: 1rem;
-}
-
-#carbon-neutral-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-footer {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.65);
-  display: flex;
-  flex-direction: column;
-  height: 13%;
-}
-
-#country {
-  border-bottom: 1px black solid;
-  padding: 1rem;
-}
-
-#footer-bottom {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 2rem;
-}
-
-#footer-bottom > div {
-  //width: 560px;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #search-container {
@@ -186,4 +144,82 @@ footer {
 .button:hover {
   border: 1px black rgba(223, 225, 229, 0.28);
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+footer {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#country {
+  padding: 0.9rem;
+  padding-left: 2rem;
+}
+
+#footer-bottom {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+hr {
+  border-top: thin;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+#carbon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#carbon img {
+  margin-right: 0.5rem;
+}
+
+.meta-container {
+  padding-left: 2rem;
+  min-width: 30%;
+}
+
+.meta-container ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meta-container li {
+  padding: 1rem 0;
+}
+
+.meta-container.left {
+  padding-left: 2rem;
+}
+
+.meta-container.left ul {
+  justify-content: flex-start;
+}
+
+.meta-container.right {
+  padding-right: 2rem;
+}
+
+.meta-container.right ul {
+  justify-content: flex-end;
+}
+
+.meta-container li + li {
+  margin-left: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
