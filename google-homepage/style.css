@@ -61,8 +61,12 @@ nav {
   margin: 0 0.5rem;
 }
 
+.clickable a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.55);
+}
+
 .clickable li:hover {
-  cursor: pointer;
   text-decoration: underline;
 }
 
