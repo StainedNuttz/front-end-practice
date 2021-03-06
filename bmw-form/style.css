@@ -24,7 +24,9 @@ body {
   align-items: center;
   background: white;
   border-radius: 2%;
-  padding: 12rem 5rem;
+  padding: 2rem;
+  width: 500px;
+  height: 700px;
 }
 
 #survey-form input {
@@ -51,11 +53,9 @@ label {
 }
 
 label select {
-  border: 0;
-  outline: 0;
-  color: 0;
-  background: 0;
   flex: 1;
+  border: none;
+  background: #fff;
 }
 
 fieldset input {
@@ -63,9 +63,34 @@ fieldset input {
 }
 
 input {
+  margin-bottom: 2rem;
   display: block;
+  font-size: 20px;
 }
 
 .same-row {
   display: flex;
+}
+
+#name {
+  margin-right: 1.5rem;
+}
+
+#name2 {
+  margin-left: 1.5rem;
+}
+
+svg {
+  margin-bottom: 2rem;
+  font-size: 12px;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 12px;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+  font-size: 32px;
 }
