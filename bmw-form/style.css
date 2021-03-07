@@ -4,12 +4,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bottom-line: rgba(0,0,0,0.3);
+}
+
 body {
   display: flex;
   min-height: 100vh;
   justify-content: center;
   background: linear-gradient(45deg, #00d3ff, #fe00c4);
-  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
 }
 
 #form-container {
@@ -23,49 +27,48 @@ body {
   flex-direction: column;
   align-items: center;
   background: white;
-  border-radius: 2%;
-  padding: 2rem;
-  width: 500px;
-  height: 700px;
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  height: 90%;
 }
 
-#survey-form input {
-  text-transform: uppercase;
-  border: none;
-  border-bottom: 1px rgba(0,0,0,0.50) solid;
+#survey-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
-.w100 {
+input[type="text"], input[type="email"], input[type="tel"] {
+  color: rgba(0,0,0,0.8);
   width: 100%;
+  border: none;
+  border-bottom: 2px var(--bottom-line) solid;
 }
 
-#survey-form input:focus::placeholder {
+input[type="text"]:focus::placeholder, input[type="email"]:focus::placeholder, input[type="tel"]:focus::placeholder {
   color: transparent;
 }
 
-#survey-form input:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
     outline: none;
 }
 
-label {
-  display: flex;
-  align-items: flex-end;
-}
-
-label select {
-  flex: 1;
-  border: none;
-  background: #fff;
-}
-
-fieldset input {
-
+.non-txt {
+  margin-bottom: 1rem;
 }
 
 input {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: block;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+input::placeholder, legend, label {
+  font-family: "Roboto";
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.6);
 }
 
 .same-row {
@@ -73,24 +76,143 @@ input {
 }
 
 #name {
-  margin-right: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 #name2 {
-  margin-left: 1.5rem;
+  margin-left: 0.5rem;
 }
 
-svg {
+.radio-section {
+  display: inline-flex;
+  padding-right: 1rem;
+}
+
+.radio-section label {
+  margin-left: 0.5rem;
+}
+
+#usage legend {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+#usage {
+  border: none;
+  border-bottom: 2px var(--bottom-line) solid;
+}
+
+#usage label {
+  font-family: "Roboto";
+  font-size: 16px;
+  text-transform: none;
+}
+
+.non-txt {
+  display: block;
+}
+
+#message {
+  resize: none;
+  border: none;
+  border: 2px rgba(0,0,0,0.3) solid;
+  height: 150px;
+  width: 100%;
+  outline: none;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  color: rgba(0,0,0,0.6);
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+#submit {
+  width: 200px;
+  font-size: 30px;
+  border-radius: 3px;
+  margin-top: 1rem;
+  align-self: center;
+  color: white;
+  background: linear-gradient(90deg, #6dd3ff, #019aff);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#submit:hover {
+  opacity: 70%;
+}
+
+#select-container {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  border-bottom: 2px var(--bottom-line) solid;
+}
+
+#dropdown {
+  width: 100%;
+  margin: 0;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 19px;
+  padding-bottom: 0.25rem;
+  font-weight: bold;
+  color: rgba(0,0,0,0.6);
+  grid-area: select;
+}
+
+#select-container::after {
+  grid-area: select;
+  width: 0.8em;
+  height: 0.5em;
+  content: "";
+  background-color: rgba(0,0,0,0.6);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+  margin-right: 0.5rem;
+}
+
+#bmw-logo {
   margin-bottom: 2rem;
-  font-size: 12px;
 }
 
 p {
   margin-bottom: 1rem;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 h1 {
   margin-bottom: 0.5rem;
-  font-size: 32px;
+  font-size: 50px;
+}
+
+@media (max-width: 900px) {
+  .same-row {
+    display: block;
+  }
+
+  #bmw-logo {
+    width: 250px;
+    height: 250px;
+  }
+
+  #name2 {
+    margin-left: 0;
+  }
+
+  #form-wrapper {
+    height: 85%;
+    width: 90%;
+  }
+
+  #form-container {
+    width: 100vw;
+  }
+
+  #submit {
+
+  }
 }
