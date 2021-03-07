@@ -105,6 +105,7 @@ input::placeholder, legend, label {
 #usage {
   border: none;
   border-bottom: 2px var(--bottom-line) solid;
+  padding-bottom: 0.5rem;
 }
 
 #usage label {
@@ -198,6 +199,7 @@ p {
 h1 {
   margin-bottom: 0.5rem;
   font-size: 50px;
+  white-space: nowrap;
 }
 
 @media (max-width: 700px) {
