@@ -29,6 +29,7 @@ body {
   background: white;
   border-radius: 10px;
   padding: 1rem 1rem;
+  width: 550px;
   height: 90%;
 }
 
@@ -177,6 +178,7 @@ input::placeholder, legend, label {
 
 #bmw-logo {
   margin-bottom: 2rem;
+  height: 200px;
 }
 
 p {
@@ -189,14 +191,9 @@ h1 {
   font-size: 50px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .same-row {
     display: block;
-  }
-
-  #bmw-logo {
-    width: 250px;
-    height: 250px;
   }
 
   #name2 {
