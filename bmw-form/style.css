@@ -29,8 +29,7 @@ body {
   background: white;
   border-radius: 10px;
   padding: 1rem 1rem;
-  width: 550px;
-  height: 90%;
+  width: 650px;
 }
 
 #survey-form {
@@ -70,6 +69,10 @@ input::placeholder, legend, label {
   font-size: 18px;
   font-weight: bold;
   color: rgba(0,0,0,0.6);
+}
+
+input::placeholder {
+  line-height: 0.75;
 }
 
 .same-row {
@@ -169,16 +172,20 @@ input::placeholder, legend, label {
   grid-area: select;
   width: 0.8em;
   height: 0.5em;
-  content: "";
-  background-color: rgba(0,0,0,0.6);
-  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  content: "^";
+  font-size: 32px;
   justify-self: end;
   margin-right: 0.5rem;
+  transform: rotate(180deg);
 }
 
 #bmw-logo {
   margin-bottom: 2rem;
-  height: 200px;
+  height: 150px;
+  width: 150px;
+}
+
+#svg-container {
 }
 
 p {
@@ -191,7 +198,7 @@ h1 {
   font-size: 50px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .same-row {
     display: block;
   }
@@ -201,15 +208,17 @@ h1 {
   }
 
   #form-wrapper {
-    height: 85%;
-    width: 90%;
+    width: 100%;
+    height: 100%;
   }
 
   #form-container {
     width: 100vw;
+    margin: 1rem;
   }
 
-  #submit {
-
+  #bmw-logo {
+    margin-bottom: 2rem;
+    height: 150px;
   }
 }
