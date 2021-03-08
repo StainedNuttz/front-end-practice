@@ -73,11 +73,11 @@
             <input id="name2" required type="text" name="last_name" placeholder="last name">
           </div>
           <input id="email" required type="email" name="email" placeholder="email">
-          <input id="number" required type="tel" name="phone-number" placeholder="telephone number">
+          <input id="tel" required type="tel" name="phone-number" placeholder="telephone number">
 
           <div id="select-container">
-            <select id="dropdown" required class="non-txt" name="bmw-model">
-              <option value="" disabled hidden selected>Select model...</option>
+            <select id="dropdown" onchange="processDropdownColor()" required class="non-txt" name="bmw-model">
+              <option value="0" disabled hidden selected>Select model...</option>
               <option value="1">BMW 1 Series</option>
               <option value="2">BMW 2 Series</option>
               <option value="3">BMW 3 Series</option>
@@ -112,4 +112,5 @@
       </div>
     </div>
   </body>
+  <script src="app.js" type="text/javascript"></script>
 </html>

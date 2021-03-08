@@ -27,7 +27,7 @@ body {
   flex-wrap: no-wrap;
   flex-direction: column;
   align-items: center;
-  background: white;
+  background: #fff;
   border-radius: 10px;
   padding: 1rem 1rem;
   width: 650px;
@@ -39,18 +39,36 @@ body {
   width: 90%;
 }
 
-input[type="text"], input[type="email"], input[type="tel"] {
-  color: rgba(0,0,0,0.8);
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
   width: 100%;
   border: none;
   border-bottom: 2px var(--bottom-line) solid;
 }
 
-input[type="text"]:focus::placeholder, input[type="email"]:focus::placeholder, input[type="tel"]:focus::placeholder {
+input[type="text"]:focus::placeholder,
+input[type="email"]:focus::placeholder,
+input[type="tel"]:focus::placeholder,
+input[type="number"]:focus::placeholder {
   color: transparent;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus {
     outline: none;
 }
 
@@ -68,7 +86,10 @@ input::placeholder, legend, label {
   text-transform: uppercase;
   font-size: 18px;
   font-weight: bold;
-  color: rgba(0,0,0,0.3);
+}
+
+legend, label {
+  color: rgba(0,0,0,0.7);
 }
 
 .same-row {
@@ -90,6 +111,7 @@ input::placeholder, legend, label {
 
 .radio-section label {
   margin-left: 0.5rem;
+  color: black;
 }
 
 .radio-section input {
@@ -166,7 +188,7 @@ input::placeholder, legend, label {
   font-size: 19px;
   padding-bottom: 0.25rem;
   font-weight: bold;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0.6);
   grid-area: select;
 }
 
@@ -225,7 +247,7 @@ h1 {
     margin-bottom: 2rem;
     height: 150px;
   }
-  
+
   #submit {
 	margin: 2rem;
   }
