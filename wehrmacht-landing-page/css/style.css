@@ -183,13 +183,19 @@ img {
 }
 
 /* Footer */
-.footer .other-armies {
-  grid-column: 1 / span 2;
+.footer .footer-nav {
+  justify-self: start;
 }
 
-.footer .grid {
+.footer .footer-copyright {
+  justify-self: start;
 }
 
 .footer .army-flag {
   width: 125px;
+}
+
+.footer .footer-armies {
+  grid-column: 1 / span 2;
+  justify-self: start;
 }
