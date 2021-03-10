@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+:root {
+  --primary-color: #000;
+  --secondary-color: red;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   /* color: #333; */
@@ -21,26 +26,130 @@ a {
 
 h1,
 h2 {
-  /* font-weight: 300; */
   line-height: 1.2;
   margin: 10px 0;
 }
 
 p {
   margin: 10px 0;
+  font-weight: 600;
 }
 
 img {
   width: 100%;
 }
 
+/* Navbar */
 .navbar {
-  background-color: #000;
+  background-color: var(--primary-color);
   color: #fff;
   height: 70px;
 }
 
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
+.navbar .flex {
+  justify-content: space-between;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: white;
+  padding-bottom: 5px;
+  margin: 0 20px;
+}
+
+.navbar a:hover {
+  border-bottom: 1px #fff solid;
+}
+
+/* Showcase */
+.showcase {
+  height: 400px;
+  background-color: var(--primary-color);
+  color: #fff;
+  position: relative;
+}
+
+.showcase .container {
+  grid-template-columns: 2fr 1fr;
+}
+
+.showcase-text a {
+  font-weight: 600;
+}
+
+.showcase-form {
+  position: relative;
+  top: 60px;
+  width: 350px;
+  z-index: 100;
+  justify-self: flex-end;
+}
+
+.showcase-form .form-control {
+  margin: 30px 0;
+}
+
+.showcase-form input[type='text'],
+.showcase-form input[type='email'],
+.showcase-form textarea {
+  border: 0;
+  border-bottom: 1px black solid;
+  width: 100%;
+  padding: 3px;
+  font-size: 14px;
+  resize: none;
+  font-family: sans-serif;
+}
+
+.showcase-form textarea {
+
+}
+
+.showcase-form textarea:invalid {
+  box-shadow: none;
+}
+
+.showcase-form input:focus,
+.showcase-form textarea:focus {
+  outline: none;
+}
+
+.showcase h1 {
+  font-size: 40px;
+}
+
+.showcase p {
+  margin: 20px 0;
+}
+
+.showcase .grid {
+  overflow: visible;
+}
+
+/* Stats */
+.stats {
+  padding-top: 100px;
+}
+
+.stats .grid h3 {
+  font-size: 35px;
+}
+
+.stats .grid p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Join */
+
+.join .card.btn {
+  /* background-color: transparent; */
+}
+
+.join .card.flex {
+  flex-direction: column;
+  justify-content: flex-start;
 }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script src="home.js"></script>
@@ -13,7 +14,7 @@
   </head>
   <body>
     <div class="navbar">
-      <div class="container">
+      <div class="container flex">
         <h1 class="logo">Die Wehrmacht</h1>
         <nav>
           <ul>
@@ -24,5 +25,90 @@
         </nav>
       </div>
     </div>
+
+    <section class="showcase">
+      <div class="container grid">
+        <div class="showcase-text">
+          <h1>The armed forces of Nazi Germany</h1>
+          <p>The Wehrmacht (<time>16 March 1935 - 20 September 1945</time>) was the unified armed forces of Nazi Germany.
+           It consisted of the Heer (army), the Kriegsmarine (navy) and the Luftwaffe (air force).</p>
+          <p>Fill out the form to enquire about the Wehrmacht</p>
+          <a href="features.html" class="btn btn-outline">Read More</a>
+        </div>
+
+        <div class="showcase-form card">
+          <h2>Enquire now</h2>
+
+          <div class="form-control">
+            <input type="text" name="name" placeholder="Name" required>
+          </div>
+
+          <div class="form-control">
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+
+          <div class="form-control">
+            <textarea name="enquiry" rows="4" cols="80" placeholder="Message" required></textarea>
+          </div>
+
+          <input type="submit" value="Send" class="btn btn-primary">
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        <h3 class="main-heading text-center my-1">
+          Statistics
+        </h3>
+        <div class="grid grid-5 text-center my-4">
+          <div>
+            <i class="fas fa-users fa-3x"></i>
+            <h3>18,000,000</h3>
+            <p class="text-secondary">Total Personnel</p>
+          </div>
+          <div>
+            <i class="fas fa-skull-crossbones fa-3x"></i>
+            <h3>5,300,000</h3>
+            <p class="text-secondary">Casualties</p>
+          </div>
+          <div>
+            <i class="fas fa-snowplow fa-3x"></i>
+            <h3>67,429</h3>
+            <p class="text-secondary">Tanks Built</p>
+          </div>
+          <div>
+            <i class="fas fa-plane fa-3x"></i>
+            <h3>133,387</h3>
+            <p class="text-secondary">Planes Built</p>
+          </div>
+          <div>
+            <i class="fas fa-bomb fa-3x"></i>
+            <h3>17,000,000</h3>
+            <p class="text-secondary">Weapons Built</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="join">
+      <div class="container">
+        <h3 class="main-heading text-center my-1">lorem</h3>
+        <div class="grid grid-3 text-center my-4">
+          <div class="card flex btn">
+            <h3>Heer</h3>
+            <img style="height: 250px; width: 200px;" src="heer.svg" alt="">
+          </div>
+          <div class="card flex btn">
+            <h3>Luftwaffe</h3>
+            <img style="width: 400px; height: 250px;" src="luftwaffe.svg" alt="">
+          </div>
+          <div class="card flex btn">
+            <h3>Kriegsmarine</h3>
+            <img style="height: 250px; width: 200px;" src="kriegsmarine.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
