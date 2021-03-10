@@ -1,3 +1,34 @@
+:root {
+  --primary-color: #000;
+}
+
+.bg-primary,
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Text Sizes */
+.lead {
+  font-size: 20px;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 2rem;
+}
+
+.lg {
+  font-size: 3rem;
+}
+
+.xl {
+  font-size: 4rem;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -19,7 +50,6 @@
 
 .main-heading {
   font-size: 40px;
-  background: red;
 }
 
 .btn {
