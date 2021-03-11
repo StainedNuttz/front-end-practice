@@ -45,7 +45,23 @@ img {
   justify-content: space-between;
 }
 
-.navbar ul {
+.navbar .nav-left {
+  display: flex;
+}
+
+.navbar .nav-left:hover {
+  border: none;
+}
+
+.navbar .nav-left > * {
+  margin-right: 1rem;
+}
+
+.navbar .real-logo {
+  width: 70px;
+}
+
+.navbar .nav-right {
   display: flex;
 }
 
@@ -138,24 +154,49 @@ img {
   font-weight: bold;
 }
 
+.stats .grid i {
+  color: red;
+}
+
 /* Branches */
 
 .branches {
-  font-size: 25px;
+}
+
+.branches .flex {
+  flex-direction: column;
+}
+
+.branches .luftwaffe {
+  order: 1;
+  grid-column: span 2;
 }
 
 .branches .card {
-  background-color: transparent;
   color: black;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.branches .grid {
-  grid-template-columns: 1fr 2fr 1fr;
+.branches .card h3 {
+  font-size: 25px;
+  font-family: cursive;
+  padding-top: 0;
+}
+
+.branches .card:hover {
+  transform: scale(0.98);
 }
 
 /* Blitzkrieg */
 .blitzkrieg .grid {
-  grid-template-columns: 4fr 3fr;
+  grid-template-columns: 4fr 5fr;
+  padding: 0 30px;
+}
+
+.blitzkrieg img {
+  height: 100%;
 }
 
 /* Benefits */
@@ -184,18 +225,203 @@ img {
 
 /* Footer */
 .footer .footer-nav {
-  justify-self: start;
-}
-
-.footer .footer-copyright {
-  justify-self: start;
+  justify-self: center;
 }
 
 .footer .army-flag {
-  width: 125px;
+  width: 100px;
+  height: auto;
+  padding: 1rem;
+  transition: transform 0.1s ease-in;
+}
+
+.footer .army-flag:hover {
+  transform: scale(1.5);
 }
 
 .footer .footer-armies {
-  grid-column: 1 / span 2;
-  justify-self: start;
+  grid-area: 1 / 2;
+}
+
+.footer {
+  padding: 1rem;
+}
+
+.footer .footer-nav a {
+  color: white;
+}
+
+.footer .footer-nav a:hover {
+  border-bottom: 1px white solid;
+}
+
+@media (max-width: 1200px) {
+  .stats .grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+  }
+
+  .stats .grid div {
+    min-width: 200px;
+  }
+
+  .main-heading {
+    font-size: 40px;
+  }
+
+  .branches .grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 500px;
+    margin: 50px auto;
+  }
+
+  .branches {
+
+  }
+
+  .footer .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer .footer-armies {
+    grid-column: span 2;
+  }
+
+  .footer .footer-copyright p {
+    margin: 0;
+  }
+
+  .footer .footer-nav {
+    justify-self: flex-end;
+    align-self: flex-end;
+  }
+
+  .footer .footer-nav ul {
+    display: flex;
+  }
+
+  .footer .footer-nav li {
+    margin-left: 1rem;
+  }
+}
+
+/* Tablets and under */
+@media(max-width: 870px) {
+  .grid,
+  .showcase .grid,
+  .blitzkrieg .grid,
+  .benefits .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .navbar .logo {
+    margin: 0 10px;
+  }
+
+  .showcase {
+    height: auto;
+  }
+
+  .showcase-text {
+    text-align: center;
+    margin: 40px;
+  }
+
+  .showcase-form {
+    justify-self: center;
+  }
+
+  .main-heading {
+    font-size: 50px;
+  }
+
+  .stats .grid {
+    margin-top: 50px;
+  }
+
+  .blitzkrieg .text-center {
+    order: 1;
+  }
+
+  .blitzkrieg,
+  .blitzkrieg h2 {
+    margin: 0;
+  }
+
+  .blitzkrieg {
+    padding-top: 0;
+  }
+
+  .blitzkrieg .grid {
+    gap: 0;
+  }
+
+  .blitzkrieg img {
+    height: 200px;
+    width: 350px;
+    justify-self: center;
+    margin-right: 25px;
+  }
+
+  .footer .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer .footer-copyright {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .footer .footer-nav {
+    grid-row: 3;
+    justify-self: center;
+  }
+
+  .footer .footer-nav li {
+    margin: 0 1rem;
+  }
+
+  .footer .footer-armies .flex {
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile */
+@media(max-width: 540px) {
+  .navbar {
+    height: 130px;
+  }
+
+  .navbar .flex {
+    flex-direction: column;
+  }
+
+  .navbar .nav-right {
+    padding: 10px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+  }
+
+  .navbar .nav-left {
+    margin-top: 20px;
+  }
+
+  .showcase {
+    padding: 1rem;
+  }
+
+  .stats .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats .grid div:last-child {
+    grid-column: auto;
+  }
+
+  .branches .grid {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }

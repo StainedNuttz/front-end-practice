@@ -15,9 +15,12 @@
   <body>
     <div class="navbar">
       <div class="container flex">
-        <h1 class="logo">Die Wehrmacht</h1>
+        <a href="index.html" class="nav-left">
+          <img class="real-logo" src="images/nazi.svg" alt="">
+          <h1 class="logo">Die Wehrmacht</h1>
+        </a>
         <nav>
-          <ul>
+          <ul class="nav-right">
             <li><a href="index.html">Home</a></li>
             <li><a href="features.html">Features</a></li>
             <li><a href="armory.html">Armory</a></li>
@@ -73,6 +76,11 @@
             <p class="text-secondary">Casualties</p>
           </div>
           <div>
+            <i class="fas fa-bomb fa-3x"></i>
+            <h3>17,000,000</h3>
+            <p class="text-secondary">Weapons Built</p>
+          </div>
+          <div>
             <i class="fas fa-snowplow fa-3x"></i>
             <h3>67,429</h3>
             <p class="text-secondary">Tanks Built</p>
@@ -82,11 +90,6 @@
             <h3>133,387</h3>
             <p class="text-secondary">Planes Built</p>
           </div>
-          <div>
-            <i class="fas fa-bomb fa-3x"></i>
-            <h3>17,000,000</h3>
-            <p class="text-secondary">Weapons Built</p>
-          </div>
         </div>
       </div>
     </section>
@@ -94,16 +97,16 @@
     <section class="branches">
       <div class="container">
         <h3 class="main-heading text-center my-1">Branches</h3>
-        <div class="grid text-center my-4">
-          <div class="card btn">
+        <div class="grid grid-4 text-center my-4">
+          <div class="card flex">
             <h3 class="py-1">Heer</h3>
             <img src="images/heer.svg" alt="">
           </div>
-          <div class="card btn">
+          <div class="card flex luftwaffe">
             <h3 class="py-1">Luftwaffe</h3>
             <img src="images/luftwaffe.svg" alt="">
           </div>
-          <div class="card btn">
+          <div class="card flex">
             <h3 class="py-1">Kriegsmarine</h3>
             <img src="images/kriegsmarine.svg" alt="">
           </div>
@@ -135,48 +138,51 @@
           <img src="images/deutsch.svg" alt="">
         </div>
         <div class="card">
-          <h4>Basic Training</h4>
-          <img src="images/deutsch.svg" alt="">
+          <h4>Weapon Training</h4>
+          <img src="images/k98k.svg" alt="">
         </div>
         <div class="card">
           <h4>Military Tactics</h4>
-          <img src="images/deutsch.svg" alt="">
+          <img src="images/map.svg" alt="">
         </div>
         <div class="card">
           <h4>Medals & Ribbons</h4>
-          <img src="images/deutsch.svg" alt="">
+          <img src="images/iron-cross.svg" alt="">
         </div>
         <div class="card">
           <h4>Combat Experience</h4>
-          <img src="images/deutsch.svg" alt="">
+          <img src="images/artillery.svg" alt="">
         </div>
         <div class="card">
-          <h4>Glory for the Vaterland</h4>
-          <img src="images/deutsch.svg" alt="">
+          <h4>Glory</h4>
+          <img src="images/nazi-eagle.svg" alt="">
         </div>
       </div>
     </section>
 
     <footer class="footer bg-primary py-5">
-      <div class="container grid grid-2">
+      <div class="container grid grid-3">
         <div class="footer-copyright">
           <h1>Die Wehrmacht</h1>
-          <p>Copyright &copy; 2021 Third Reich All Rights Reserved.</p>
+          <p>Copyright &copy; 2021 Third Reich </br>All Rights Reserved</p>
         </div>
         <nav class="footer-nav">
-          <ul class="flex">
+          <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="features.html">Features</a></li>
             <li><a href="armory.html">Armory</a></li>
           </ul>
         </nav>
-        <div class="footer-armies flex">
-          <a href="#"><img class="army-flag btn" src="images/soviet.svg" alt=""/></a>
-          <a href="#"><img class="army-flag btn" src="images/usa.svg" alt=""/></a>
-          <a href="#"><img class="army-flag btn" src="images/france.svg" alt=""/></a>
-          <a href="#"><img class="army-flag btn" src="images/uk.svg" alt=""/></a>
-          <a href="#"><img class="army-flag btn" src="images/italy.svg" alt=""/></a>
-          <a href="#"><img class="army-flag btn" src="images/japan.svg" alt=""/></a>
+        <div class="footer-armies">
+          <h3 class="text-center">Check out other armies!</h3>
+          <div class="flex">
+            <a href="#"><img class="army-flag" src="images/soviet.svg" alt=""></a>
+            <a href="#"><img class="army-flag" src="images/usa.svg" alt=""></a>
+            <a href="#"><img class="army-flag" src="images/france.svg" alt=""></a>
+            <a href="#"><img class="army-flag" src="images/uk.svg" alt=""></a>
+            <a href="#"><img class="army-flag" src="images/italy.svg" alt=""></a>
+            <a href="#"><img class="army-flag" src="images/japan.svg" alt=""></a>
+          </div>
         </div>
       </div>
     </footer>
