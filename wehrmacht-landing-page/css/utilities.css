@@ -1,11 +1,18 @@
 :root {
   --primary-color: #000;
+  --secondary-color: rgba(0,0,0,0.1);
 }
 
 .bg-primary,
 .btn-primary {
   background-color: var(--primary-color);
   color: #fff;
+}
+
+.bg-secondary,
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #111;
 }
 
 /* Text Sizes */
@@ -27,6 +34,10 @@
 
 .xl {
   font-size: 4rem;
+}
+
+.xxl {
+  font-size: 5rem;
 }
 
 .container {

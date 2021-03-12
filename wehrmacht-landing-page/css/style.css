@@ -48,7 +48,7 @@ img {
 .navbar .real-logo {
   height: 100%;
   width: 80px;
-  margin: 1rem;
+  margin-right: 1rem;
 }
 
 .navbar .nav-left:hover {
@@ -79,7 +79,6 @@ img {
 
 .showcase .container {
   grid-template-columns: 2fr 1fr;
-  padding: 1rem;
 }
 
 .showcase-text a {
@@ -213,7 +212,6 @@ img {
   text-align: center;
   margin: 18px 10px 20px;
   transition: transform 0.15s ease-in;
-
 }
 
 .benefits .card h4 {
@@ -223,6 +221,41 @@ img {
 
 .benefits .card:hover {
   transform: translateY(-15px);
+}
+
+/* Features * Features */
+/* Features * Features */
+/* Features * Features */
+.features-head .grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.features-head object {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(186deg) brightness(106%) contrast(102%);
+  justify-self: flex-end;
+  width: 300px;
+  height: 100%;
+}
+
+/* Sub Head */
+.features-subhead .grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.features-subhead i {
+  width: 300px;
+  text-align: center; 
+  justify-self: flex-end;
+}
+
+.features-content .card  {
+  grid-template-columns: 1fr 5fr;
+}
+
+.features-content .card .flex {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Footer */
@@ -238,7 +271,7 @@ img {
 }
 
 .footer .army-flag:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 
 .footer .footer-armies {
