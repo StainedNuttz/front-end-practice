@@ -426,8 +426,14 @@ img {
   }
 
   .showcase-form .form-control,
+  .showcase-form input[type='submit'],
   .showcase-form h2 {
     margin: 10px;
+  }
+
+  .btn:hover {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .stats .grid {
