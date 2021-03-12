@@ -105,6 +105,7 @@ img {
   -ms-progress-appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   border: 0;
   border-bottom: 1px black solid;
   width: 100%;
@@ -112,6 +113,13 @@ img {
   font-size: 14px;
   resize: none;
   font-family: sans-serif;
+}
+
+.showcase-form input[type='submit'] {
+  -ms-progress-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .showcase-form textarea:invalid {
