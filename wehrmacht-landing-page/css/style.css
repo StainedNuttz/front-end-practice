@@ -102,6 +102,9 @@ img {
 .showcase-form input[type='text'],
 .showcase-form input[type='email'],
 .showcase-form textarea {
+  -ms-progress-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
   border: 0;
   border-bottom: 1px black solid;
   width: 100%;
