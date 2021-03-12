@@ -45,34 +45,28 @@ img {
   justify-content: space-between;
 }
 
-.navbar .nav-left {
-  display: flex;
+.navbar .real-logo {
+  height: 100%;
+  width: 80px;
+  margin: 1rem;
 }
 
 .navbar .nav-left:hover {
   border: none;
 }
 
-.navbar .nav-left > * {
-  margin-right: 1rem;
-}
-
-.navbar .real-logo {
-  width: 70px;
-}
-
-.navbar .nav-right {
-  display: flex;
+.navbar .nav-right li {
+  margin: 1rem;
 }
 
 .navbar a {
+  text-decoration: none;
   color: white;
-  padding-bottom: 5px;
-  margin: 0 20px;
+  padding: 5px;
 }
 
 .navbar a:hover {
-  border-bottom: 1px #fff solid;
+  border-bottom: 1px white solid;
 }
 
 /* Showcase */
@@ -85,10 +79,12 @@ img {
 
 .showcase .container {
   grid-template-columns: 2fr 1fr;
+  padding: 1rem;
 }
 
 .showcase-text a {
   font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .showcase-form {
@@ -113,10 +109,6 @@ img {
   font-size: 14px;
   resize: none;
   font-family: sans-serif;
-}
-
-.showcase-form textarea {
-
 }
 
 .showcase-form textarea:invalid {
@@ -160,9 +152,6 @@ img {
 
 /* Branches */
 
-.branches {
-}
-
 .branches .flex {
   flex-direction: column;
 }
@@ -177,11 +166,12 @@ img {
   cursor: pointer;
   padding-top: 0;
   padding-bottom: 0;
+  min-width: 220px;
 }
 
 .branches .card h3 {
   font-size: 25px;
-  font-family: cursive;
+  font-family: cursive, sans-serif;
   padding-top: 0;
 }
 
@@ -211,7 +201,8 @@ img {
 .benefits .card {
   text-align: center;
   margin: 18px 10px 20px;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.15s ease-in;
+
 }
 
 .benefits .card h4 {
@@ -245,6 +236,7 @@ img {
 
 .footer {
   padding: 1rem;
+  margin-bottom: 0;
 }
 
 .footer .footer-nav a {
@@ -276,10 +268,6 @@ img {
     margin: 50px auto;
   }
 
-  .branches {
-
-  }
-
   .footer .grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -291,35 +279,24 @@ img {
   .footer .footer-copyright p {
     margin: 0;
   }
-
-  .footer .footer-nav {
-    justify-self: flex-end;
-    align-self: flex-end;
-  }
-
-  .footer .footer-nav ul {
-    display: flex;
-  }
-
-  .footer .footer-nav li {
-    margin-left: 1rem;
-  }
 }
 
 /* Tablets and under */
 @media(max-width: 870px) {
   .grid,
+  .footer .grid,
   .showcase .grid,
   .blitzkrieg .grid,
   .benefits .grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
-
-  .navbar .logo {
-    margin: 0 10px;
+  
+  .navbar h1 {
+    font-size: 22px;
+    align-self: center;
   }
-
+  
   .showcase {
     height: auto;
   }
@@ -327,6 +304,7 @@ img {
   .showcase-text {
     text-align: center;
     margin: 40px;
+    margin-bottom: 0;
   }
 
   .showcase-form {
@@ -366,21 +344,34 @@ img {
   }
 
   .footer .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer .footer-copyright {
-    justify-self: center;
-    text-align: center;
+    gap: 0;
   }
 
   .footer .footer-nav {
     grid-row: 3;
-    justify-self: center;
+  }
+
+  .footer .footer-nav ul {
+    display: flex;
+    justify-content: center;
   }
 
   .footer .footer-nav li {
-    margin: 0 1rem;
+    margin: 0 1.5rem;
+  }
+
+  .footer .footer-copyright h1 {
+    margin-top: 0;
+  }
+
+  .footer .footer-copyright {
+    grid-row: 2;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer .footer-armies {
+    grid-column: auto;
   }
 
   .footer .footer-armies .flex {
@@ -391,7 +382,7 @@ img {
 /* Mobile */
 @media(max-width: 540px) {
   .navbar {
-    height: 130px;
+    height: auto;
   }
 
   .navbar .flex {
@@ -399,17 +390,33 @@ img {
   }
 
   .navbar .nav-right {
-    padding: 10px;
+    flex-direction: row;
     background-color: rgba(255,255,255,0.1);
     border-radius: 5px;
   }
 
-  .navbar .nav-left {
-    margin-top: 20px;
+  .navbar .nav-right li {
+    margin: 10px 15px;
   }
 
-  .showcase {
-    padding: 1rem;
+  .navbar .logo {
+    margin-top: 0;
+  }
+
+  .showcase-text {
+    margin: 1rem;
+  }
+
+  .showcase-form {
+    width: auto;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showcase-form .form-control,
+  .showcase-form h2 {
+    margin: 10px;
   }
 
   .stats .grid {
@@ -420,8 +427,10 @@ img {
     grid-column: auto;
   }
 
-  .branches .grid {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  .branches .grid > *:not(.luftwaffe) {
+    grid-column: span 2;
+    width: 50%;
+    margin: 0 auto;
   }
+
 }

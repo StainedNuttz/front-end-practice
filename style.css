@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: 4rem auto;
-  grip-gap: 1rem;
+  gap: 1rem;
   padding-bottom: 2.5rem;
 }
 
