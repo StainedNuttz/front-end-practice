@@ -102,6 +102,10 @@ img {
 .showcase-form input[type='text'],
 .showcase-form input[type='email'],
 .showcase-form textarea {
+  -ms-progress-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   border: 0;
   border-bottom: 1px black solid;
   width: 100%;
@@ -109,6 +113,13 @@ img {
   font-size: 14px;
   resize: none;
   font-family: sans-serif;
+}
+
+.showcase-form input[type='submit'] {
+  -ms-progress-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .showcase-form textarea:invalid {
@@ -415,8 +426,14 @@ img {
   }
 
   .showcase-form .form-control,
+  .showcase-form input[type='submit'],
   .showcase-form h2 {
     margin: 10px;
+  }
+
+  .btn:hover {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .stats .grid {
