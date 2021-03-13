@@ -382,7 +382,7 @@ pre {
 }
 
 .armory-main .selected .weapon:last-child {
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .armory-main .selected h2 {
