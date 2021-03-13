@@ -42,11 +42,36 @@ pre {
   padding: 10px;
 }
 
+/* Animations */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 /* Navbar */
 .navbar {
   background-color: var(--primary-color);
   color: #fff;
   height: 70px;
+}
+
+.navbar .container {
+  overflow: visible;
 }
 
 .navbar .flex {
@@ -89,6 +114,10 @@ pre {
   grid-template-columns: 2fr 1fr;
 }
 
+.showcase-text {
+  animation: slideInFromLeft 1s ease-in;
+}
+
 .showcase-text a {
   font-weight: 600;
   margin-bottom: 1rem;
@@ -100,6 +129,7 @@ pre {
   width: 350px;
   z-index: 100;
   justify-self: flex-end;
+  animation: slideInFromRight 1s ease-in;
 }
 
 .showcase-form .form-control {
