@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,6 +8,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
   /* color: #333; */
   line-height: 1.6;
 }
@@ -27,11 +29,17 @@ h2 {
 
 p {
   margin: 10px 0;
-  font-weight: 600;
 }
 
 img {
   width: 100%;
+}
+
+code,
+pre {
+  background: #333;
+  color: #fff;
+  padding: 10px;
 }
 
 /* Navbar */
@@ -153,7 +161,6 @@ img {
 
 .stats .grid p {
   font-size: 20px;
-  font-weight: bold;
 }
 
 .stats .grid i {
@@ -310,6 +317,62 @@ img {
   text-align: center;
 }
 
+.armory-main .grid {
+  grid-template-columns: 2fr 5fr;
+}
+
+.armory-main .selections .selected-section{
+  color: red;
+}
+
+.armory-main .selections ul {
+  margin-left: 1rem;
+}
+
+.armory-main .selections a {
+  color: black;
+}
+
+.armory-main .selections a:hover {
+  color: red;
+}
+
+.armory-main .selections {
+  align-self: flex-start;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.armory-main .selected .container {
+  margin: 0 3rem;
+}
+
+.armory-main .selected .weapon {
+  margin-bottom: 5rem;
+}
+
+.armory-main .selected .weapon:last-child {
+  padding-bottom: 2rem;
+}
+
+.armory-main .selected h2 {
+  margin-bottom: 2rem;
+}
+
+.armory-main .selected h3 {
+  border-bottom: 1px black solid;
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+
+.armory-main .selected p {
+  line-height: 1.3;
+}
+
+.armory-main .selected .alert {
+  margin-bottom: 10px;
+}
+
 /* Footer */
 .footer .footer-nav {
   justify-self: center;
@@ -364,6 +427,26 @@ img {
     margin: 50px auto;
   }
 
+  .armory-main .selections {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-self: center;
+  }
+
+  .armory-main .sub-section {
+    justify-self: flex-end;
+    font-size: 25px;
+  }
+
+  .armory-main .selections ul {
+    margin: 0;
+  }
+  
+  .armory-main .grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer .grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -383,7 +466,9 @@ img {
   .footer .grid,
   .showcase .grid,
   .blitzkrieg .grid,
-  .benefits .grid {
+  .benefits .grid,
+  .features-head .grid,
+  .features-subhead .grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
@@ -437,6 +522,61 @@ img {
     width: 350px;
     justify-self: center;
     margin-right: 25px;
+  }
+
+  .features-head .grid,
+  .features-subhead .grid,
+  .armory-head .grid {
+    text-align: center;
+    padding: 0 100px;
+    gap: 30px;
+  }
+
+  .features-subhead i,
+  .armory-head i {
+    justify-self: center;
+  }
+
+  .features-head .grid object {
+    justify-self: center;
+  }
+
+  .features-content-1 .card.grid {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .features-content-1 .card.luftwaffe {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .features-content-2 .grid >*:nth-child(1) {
+    grid-column: 1;
+    flex-direction: column;
+  }
+
+  .features-content-2 .grid >*:nth-child(1) i {
+    margin: 0;
+  }
+
+  .features-content-2 .grid >*:nth-child(6) {
+    grid-column: 1;
+  }
+
+  .armory-main .selected .container {
+    margin: 0;
+    margin-left: 1rem;
+  }
+  
+  .armory-main .selected h2 {
+    font-size: 30px;
+  }
+
+  .armory-main .selections {
+    grid-template-columns: 1fr;
+  }
+  
+  .armory-main .sub-section {
+    justify-self: flex-start;
   }
 
   .footer .grid {
@@ -496,8 +636,8 @@ img {
     margin: 10px 15px;
   }
 
-  .navbar .logo {
-    margin-top: 0;
+  .navbar .nav-left img {
+    margin: 0;
   }
 
   .showcase-text {
@@ -540,4 +680,41 @@ img {
     margin: 0 auto;
   }
 
+  .features-content-1 .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .features-content-1 .card h1 {
+    align-self: center;
+  }
+
+  .features-content-1 .card:not(.luftwaffe) img {
+    width: 200px;
+  }
+
+  .armory-main {
+    margin: 0;
+  }
+
+  .armory-main .card {
+    box-shadow: none;
+  }
+
+  .armory-main .grid {
+    padding: 0;
+    gap: 0;
+  }
+
+  .armory-main .selected {
+    margin: 0;
+    padding: 5px;
+  }
+
+  .armory-main .selected .container,
+  .armory-main .selections {
+    margin: 0;
+    justify-self: normal;
+  }
 }
