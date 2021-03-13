@@ -144,7 +144,7 @@ img {
 
 /* Stats */
 .stats {
-  padding-top: 100px;
+  padding-top: 75px;
 }
 
 .stats .grid h3 {
@@ -192,7 +192,6 @@ img {
 /* Blitzkrieg */
 .blitzkrieg .grid {
   grid-template-columns: 4fr 5fr;
-  padding: 0 30px;
 }
 
 .blitzkrieg img {
@@ -253,7 +252,11 @@ img {
   grid-template-columns: 1fr 5fr;
 }
 
-.features-content .card .flex { /* FIXME CARD SHADOW MARGIN BOTTOM AND TOP */
+.features-content p  {
+  line-height: 1.3;
+}
+
+.features-content .card .flex {
   flex-direction: column;
   align-items: flex-start;
 }
@@ -320,8 +323,8 @@ img {
     grid-column: span 2;
   }
 
-  .footer .footer-copyright p {
-    margin: 0;
+  .footer .footer-nav {
+    justify-self: flex-end;
   }
 }
 
@@ -393,6 +396,7 @@ img {
 
   .footer .footer-nav {
     grid-row: 3;
+    justify-self: center;
   }
 
   .footer .footer-nav ul {
@@ -401,7 +405,7 @@ img {
   }
 
   .footer .footer-nav li {
-    margin: 0 1.5rem;
+    margin: 0 1rem;
   }
 
   .footer .footer-copyright h1 {
@@ -475,6 +479,10 @@ img {
 
   .stats .grid div:last-child {
     grid-column: auto;
+  }
+
+  .branches .grid {
+    margin-bottom: 2rem;
   }
 
   .branches .grid > *:not(.luftwaffe) {

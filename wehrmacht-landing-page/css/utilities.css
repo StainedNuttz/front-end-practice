@@ -46,6 +46,27 @@
   overflow: auto;
 }
 
+
+.container.grid {
+  padding: 1rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .text-center {
   text-align: center;
 }
@@ -80,22 +101,6 @@
 .btn-outline {
   background-color: transparent;
   border: 1px white solid;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }
 
 .grid-1 {
