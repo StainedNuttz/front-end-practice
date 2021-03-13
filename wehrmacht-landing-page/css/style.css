@@ -253,7 +253,7 @@ img {
   grid-template-columns: 1fr 5fr;
 }
 
-.features-content .card .flex {
+.features-content .card .flex { /* FIXME CARD SHADOW MARGIN BOTTOM AND TOP */
   flex-direction: column;
   align-items: flex-start;
 }
