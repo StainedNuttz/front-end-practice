@@ -181,7 +181,6 @@ img {
 
 .branches .card h3 {
   font-size: 25px;
-  font-family: cursive, sans-serif;
   padding-top: 0;
 }
 
@@ -242,11 +241,17 @@ img {
   grid-template-columns: 1fr 1fr;
 }
 
+.features-subhead-2 .grid {
+ grid-template-columns: 2fr 1fr; 
+}
+
 .features-subhead i {
   width: 300px;
   text-align: center; 
   justify-self: flex-end;
 }
+
+/* Features */
 
 .features-content-1 .card  {
   grid-template-columns: 1fr 6fr;
@@ -273,6 +278,36 @@ img {
 
 .features-content-1 h1 {
   margin: 0;
+}
+
+.features-content-2 .grid {
+  column-gap: 0;
+}
+
+.features-content-2 .card i {
+  margin-right: 30px;
+}
+
+.features-content-2 .grid >*:nth-child(1) {
+  grid-column: span 3;
+}
+
+.features-content-2 .grid >*:nth-child(6) {
+  grid-column: span 2;
+}
+
+/* Armory * Armory */
+/* Armory * Armory */
+/* Armory * Armory */
+
+.armory-head .grid {
+  gap: 0;
+}
+
+.armory-head i {
+  justify-self: flex-end;
+  width: 300px;
+  text-align: center;
 }
 
 /* Footer */
