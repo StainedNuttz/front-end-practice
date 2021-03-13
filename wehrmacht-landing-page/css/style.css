@@ -248,17 +248,31 @@ img {
   justify-self: flex-end;
 }
 
-.features-content .card  {
-  grid-template-columns: 1fr 5fr;
+.features-content-1 .card  {
+  grid-template-columns: 1fr 6fr;
+  height: auto;
 }
 
-.features-content p  {
+.features-content-1 p  {
   line-height: 1.3;
 }
 
-.features-content .card .flex {
+.features-content-1 .grid {
+  gap: 40px;
+}
+
+.features-content-1 .luftwaffe {
+  grid-template-columns: 2fr 5fr;
+}
+
+.features-content-1 .card .flex {
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.features-content-1 h1 {
+  margin: 0;
 }
 
 /* Footer */
