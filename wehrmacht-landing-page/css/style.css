@@ -116,6 +116,9 @@ pre {
 
 .showcase-text {
   animation: slideInFromLeft 1s ease-in;
+  -webkit-animation: slideInFromLeft 1s ease-in;
+  -o-animation: slideInFromLeft 1s ease-in;
+  -moz-animation: slideInFromLeft 1s ease-in;
 }
 
 .showcase-text a {
@@ -130,6 +133,9 @@ pre {
   z-index: 100;
   justify-self: flex-end;
   animation: slideInFromRight 1s ease-in;
+  -webkit-animation: slideInFromRight 1s ease-in;
+  -o-animation: slideInFromRight 1s ease-in;
+  -moz-animation: slideInFromRight 1s ease-in;
 }
 
 .showcase-form .form-control {
