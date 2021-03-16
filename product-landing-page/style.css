@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lemon&display=swap');
+
+:root {
+  --primary-dark: #B00000;
+  --primary-main: #FFA0A4;
+  --primary-light: #FFBFC2;
+
+  --secondary-dark: #003E73;
+  --secondary-main: #457B94;
+  --secondary-light: #D1EAFF;
+
+  --order-form: #1A83D9;
+}
+
+.primary-bg {
+  background-color: var(--primary-light);
+}
+
+.secondary-bg {
+  background-color: var(--secondary-light);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* overflow: auto; */
+}
+
+.flex {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: rgba(166, 68, 169, 0.4);
+  border-radius: 5px;
+}
+
+.button {
+  padding: 2rem;
+  border: 1px black solid;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
