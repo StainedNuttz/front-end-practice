@@ -10,14 +10,16 @@
   --primary-color: rgba(48, 48, 48, 1);
   --primary-text-color: #fff;
   --secondary-color: rgba(207, 162, 95, 0.95);
-  --tertiary-color: rgba(34, 34, 34, 0.171);
+  --tertiary-color: #fff;
   --highlight-color: rgb(73, 73, 73);
+  --card-color: rgb(226, 226, 226);
 }
 
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   color: var(--primary-text-color);
+  background-color: var(--primary-color);
 }
 
 .container {
@@ -31,6 +33,12 @@ body {
   justify-content: center;
   align-items: center;
   grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 100%;
+}
+
+.card {
+  background-color: rgb(226, 226, 226);
 }
 
 .flex {
@@ -39,32 +47,76 @@ body {
   align-items: center;
 }
 
-.card {
-  box-shadow: 5px 5px 3px #999;
+.text-center {
+  text-align: center;
+}
+
+.dark {
+  background-color: var(--primary-color);
+}
+.light {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+}
+.orange {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .btn {
   display: inline-block;
   text-decoration: none;
-  padding: 10px 15px;
-}
-
-.btn.btn-dark {
-  background-color: var(--primary-color);
-}
-
-.btn.btn-light {
-  background-color: var(--tertiary-color);
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .btn:hover {
   color: var(--secondary-color);
 }
 
+/* Background image div */
+.bg-img,
+.bg-img-s {
+  position: relative;
+}
+
 .bg-img {
   background-position: bottom right;
   height: 100vh;
   width: 100%;
+}
+
+.bg-img-s {
+  background-position: center;
+}
+
+/* Background overlay */
+.bg-img-o {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: #0008;
+  overflow-y: hidden;
+}
+
+.page-heading {
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.page-heading h1 {
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: 3px;  
+}
+
+/* For background image overlay */
+.container > * {
+  position: relative;
+  z-index: 2;
 }
 
 .my-1 {
@@ -90,11 +142,20 @@ a {
   color: var(--primary-text-color);
 }
 
+p {
+  line-height: 1.6;
+}
+
+span {
+  color: var(--secondary-color);
+}
+
 /* Navbar */
 .navbar {
   position: absolute;
   width: 100%;
   background-color: var(--primary-color);
+  z-index: 10;
 }
 
 .navbar .container {
@@ -107,6 +168,9 @@ a {
 
 .navbar li {
   font-weight: 500;
+}
+
+.navbar nav a {
   padding: 20px;
 }
 
@@ -115,7 +179,7 @@ a {
   font-size: 40px;
 }
 
-.navbar li:hover,
+.navbar a:hover,
 .navbar .navbar-logo:hover {
   background-color: var(--highlight-color);
   color: var(--secondary-color);
@@ -128,35 +192,95 @@ a {
 
 /* Showcase */
 .showcase {
-  background-image: url(images/showcase.jpg);
-}
-
-.showcase .showcase-text {
-  line-height: 1.6;
-  text-align: center;
-  font-weight: 400;
-  font-size: 24px;
-}
-
-.showcase .showcase-text h1,
-.showcase .showcase-text p {
-  padding: 20px;
-}
-
-.showcase .showcase-text h1 {
-  font-size: 80px;
-  font-weight: 700;
-  letter-spacing: 3px;  
-}
-
-.showcase .showcase-text span {
-  color: var(--secondary-color);
+  background-image: url(images/photo-1.jpg);
 }
 
 /* History */
-.history {
-  background-color: rgba(0, 0, 0, 0.699);
+.history p {
+  margin-bottom: 1rem;
 }
-.history .grid {
-  grid-template-columns: 2fr 1fr;
+
+/* .history .container > * {
+  padding: 30px;
+} */
+
+/* Benefits */
+.benefits {
+  background-image: url(images/photo-1.jpg);
+}
+
+.benefits .grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.benefits .card {
+  padding: 80px;
+}
+
+.benefits i {
+  margin-bottom: 30px;
+}
+
+/* Footer */
+.footer {
+  font-weight: 400;
+  text-align: center;
+}
+
+.footer .container {
+  padding: 20px;
+}
+
+/* ABOUT PAGE  */
+
+/* About */
+.about {
+  background-image: url(images/photo-2.jpg);
+}
+
+/* Information */
+.information .information-section {
+  padding: 30px 0;
+  height: 100%;
+}
+
+.information .information-section ul {
+  list-style: none;
+}
+
+/* Reviews  */
+.reviews {
+  background-image: url(images/photo-3.jpg);
+  padding-bottom: 125px;
+}
+
+.reviews img {
+  border-radius: 100%;
+}
+
+.reviews h2 {
+  padding: 50px;
+  font-size: 32px;
+}
+
+.reviews .grid {
+  grid-template-columns: 1fr;
+}
+
+.reviews .card {
+  background-color:rgba(207, 162, 95, 0.8);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--primary-color);
+
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  align-items: center;
+  gap: 70px;
+  padding: 30px 80px;
+}
+
+.reviews .card p::before,
+.reviews .card p::after {
+  content: '"';
 }
