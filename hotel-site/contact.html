@@ -24,41 +24,45 @@
     </div>
   </header>
 
-  <section class="form">
-    <div class="container">
-      <h1><span>Contact</span> Us</h1>
-      <p>Please fill out the form below to contact us.</p>
-      <form>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
-        <br>
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <br>
-
-        <label for="message">Message</label>
-        <textarea name="message" id="message" rows="10"></textarea>
-        <br>
-
-        <button type="submit" class="btn btn-dark">Submit</button>
+  <section class="form bg-img-s">
+    <div class="bg-img-o"></div>
+    <div class="container page-heading">
+      <h1 class="text-center"><span>Contact</span> Us</h1>
+      <h2 class="text-center">Please fill out the form below to contact us.</h2>
+      <form class="flex">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name">
+        </div>
+      
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+        </div>
+      
+        <div>
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="8"></textarea>
+        </div>
+      
+        <button type="submit" class="btn light">Submit</button>
       </form>
     </div>
   </section>
 
-  <section class="details">
-    <div class="container">
-      <div class="card">
+  <section class="details py-3">
+    <div class="container grid text-center">
+      <div class="card light">
         <i class="fas fa-hotel fa-2x"></i>
         <h3>Location</h3>
         <p>50 Main St, Boston MA</p>
       </div>
-      <div class="card">
+      <div class="card light">
         <i class="fas fa-phone fa-2x"></i>
         <h3>Phone Number</h3>
         <p>(617)-555-5213</p>
       </div>
-      <div class="card">
+      <div class="card light">
         <i class="fas fa-envelope fa-2x"></i>
         <h3>Email Address</h3>
         <p>enquiry@hotelbt.com</p>

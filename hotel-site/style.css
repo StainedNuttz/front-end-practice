@@ -13,6 +13,8 @@
   --tertiary-color: #fff;
   --highlight-color: rgb(73, 73, 73);
   --card-color: rgb(226, 226, 226);
+
+  --navbar-height: 60px;
 }
 
 body {
@@ -39,6 +41,7 @@ body {
 
 .card {
   background-color: rgb(226, 226, 226);
+  box-shadow: 3px 3px 3px #0008;
 }
 
 .flex {
@@ -53,6 +56,7 @@ body {
 
 .dark {
   background-color: var(--primary-color);
+  color: var(--primary-text-color);
 }
 .light {
   background-color: var(--tertiary-color);
@@ -75,20 +79,16 @@ body {
   color: var(--secondary-color);
 }
 
-/* Background image div */
 .bg-img,
 .bg-img-s {
+  background-position: center;
+  height: calc(100vh - var(--navbar-height));
+  width: 100%;
   position: relative;
 }
 
-.bg-img {
-  background-position: bottom right;
-  height: 100vh;
-  width: 100%;
-}
-
 .bg-img-s {
-  background-position: center;
+  height: auto;
 }
 
 /* Background overlay */
@@ -131,6 +131,18 @@ body {
 .my-4 {
   margin: 4rem 0;
 }
+.py-1 {
+  padding: 1rem 0;
+}
+.py-2 {
+  padding: 2rem 0;
+}
+.py-3 {
+  padding: 3rem 0;
+}
+.py-4 {
+  padding: 4rem 0;
+}
 
 img {
   width: 100%;
@@ -152,10 +164,9 @@ span {
 
 /* Navbar */
 .navbar {
-  position: absolute;
   width: 100%;
   background-color: var(--primary-color);
-  z-index: 10;
+  height: var(--navbar-height);
 }
 
 .navbar .container {
@@ -171,7 +182,8 @@ span {
 }
 
 .navbar nav a {
-  padding: 20px;
+  padding: 18px;
+  padding-top: 20px;
 }
 
 .navbar-logo {
@@ -200,10 +212,6 @@ span {
   margin-bottom: 1rem;
 }
 
-/* .history .container > * {
-  padding: 30px;
-} */
-
 /* Benefits */
 .benefits {
   background-image: url(images/photo-1.jpg);
@@ -211,6 +219,7 @@ span {
 
 .benefits .grid {
   grid-template-columns: repeat(3, 1fr);
+  gap: 75px;
 }
 
 .benefits .card {
@@ -238,20 +247,29 @@ span {
   background-image: url(images/photo-2.jpg);
 }
 
+.about .about-info {
+  padding-bottom: 100px;
+}
+
 /* Information */
+.information h2 {
+  font-size: 32px;
+}
+
 .information .information-section {
   padding: 30px 0;
   height: 100%;
+  justify-self: center;
 }
 
 .information .information-section ul {
-  list-style: none;
+  list-style: square;
+  list-style-position: inside;
 }
 
 /* Reviews  */
 .reviews {
   background-image: url(images/photo-3.jpg);
-  padding-bottom: 125px;
 }
 
 .reviews img {
@@ -259,20 +277,22 @@ span {
 }
 
 .reviews h2 {
-  padding: 50px;
-  font-size: 32px;
+  padding: 20px;
+  font-size: 48px;
 }
 
 .reviews .grid {
+  padding-bottom: 50px;
   grid-template-columns: 1fr;
 }
 
 .reviews .card {
-  background-color:rgba(207, 162, 95, 0.8);
+  background-color:rgba(194, 151, 87, 0.548);
   font-size: 22px;
   font-style: italic;
-  color: var(--primary-color);
-
+  font-weight: 500;
+  color: var(--primary-text-color);
+  
   display: grid;
   grid-template-columns: 1fr 8fr;
   align-items: center;
@@ -283,4 +303,84 @@ span {
 .reviews .card p::before,
 .reviews .card p::after {
   content: '"';
+}
+
+/* CONTACT PAGE */
+
+/* Form */
+.form {
+  background-image: url("images/photo-4.jpg");
+  background-size: 3200px;
+  background-position-x: -1150px;
+}
+
+.form .container {
+  padding: 60px;
+}
+
+.form h1 {
+  line-height: 1;
+}
+
+.form h2 {
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.form label {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.form input,
+.form textarea {
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "Poppins";
+
+  display: block;
+  width: 100%;
+  resize: none;
+  background-color: var(--highlight-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 5px;
+}
+
+.form form {
+  flex-direction: column;
+  max-width: 550px;
+  padding: 20px 0;
+  margin: 60px auto;
+  background-color: rgba(48, 48, 48, 0.6);
+  box-shadow: 3px 3px 5px #0008;
+}
+
+.form .container div {
+  width: 100%;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+}
+
+button.btn {
+  border: none;
+  width: 150px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* Details */
+.details {
+  background-color:rgb(73, 73, 73);
+}
+
+.details .grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.details .card {
+  padding: 20px;
 }
