@@ -3,13 +3,23 @@
   height: 100%;
 }
 
+h1,
+.form .form-heading h1,
+.about .about-info h1 {
+  line-height: 1;
+}
+
+h2 {
+  line-height: 1.2;
+}
+
 header .navbar .container.flex {
   flex-direction: column;
 }
 
 header .navbar {
   height: 100%;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 header .navbar-logo {
@@ -28,11 +38,13 @@ header .navbar a:hover {
 
 .page-heading span {
   display: block;
+  font-size: 5rem;
 }
 
 .page-heading h1 {
   font-size: 4rem;
   line-height: 1.3;
+  padding-bottom: 1rem;
 }
 
 .page-heading p {
@@ -42,6 +54,10 @@ header .navbar a:hover {
 
 br {
   line-height: 3;
+}
+
+.showcase .container {
+  padding: 2rem 0;
 }
 
 .history .grid {
@@ -54,8 +70,8 @@ br {
   padding: 1rem;
 }
 
-.history h2 {
-  font-size: 2rem;
+.history img {
+  height: auto;
 }
 
 .benefits .grid {
@@ -69,6 +85,10 @@ br {
   display: block;
 }
 
+.about .about-info {
+  padding: 2rem 0;
+}
+
 .information .grid {
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -77,10 +97,6 @@ br {
 .information .information-section {
   padding: 1rem 0;
   text-align: center;
-}
-
-.information h2 {
-  font-size: 3rem;
 }
 
 .information li {
@@ -106,8 +122,21 @@ br {
   padding-bottom: 1rem;
 }
 
+.reviews {
+  background-position-x: -2200px;
+  background-position-y: -1200px;
+}
+
 .form {
   background-position: -1250px -1000px;
+}
+
+.form .form-heading h2 {
+  padding: 0 1rem;
+}
+
+.form .container {
+  padding-bottom: 3px;
 }
 
 .details,
@@ -117,6 +146,6 @@ br {
 
 .details .grid {
   grid-template-columns: 1fr;
-  gap: 3px;
+  gap: 0;
   padding-bottom: 3px;
 }
