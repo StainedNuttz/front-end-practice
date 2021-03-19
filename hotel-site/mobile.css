@@ -1,3 +1,8 @@
+.bg-img,
+.bg-img-s {
+  height: 100%;
+}
+
 header .navbar .container.flex {
   flex-direction: column;
 }

@@ -208,6 +208,10 @@ header .navbar .navbar-logo:hover {
   background-image: url(images/photo-1.jpg);
 }
 
+.showcase .container {
+  overflow: hidden;
+}
+
 /* History */
 .history p {
   margin-bottom: 1rem;
