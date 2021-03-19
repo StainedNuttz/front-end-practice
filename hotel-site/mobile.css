@@ -1,0 +1,117 @@
+header .navbar .container.flex {
+  flex-direction: column;
+}
+
+header .navbar {
+  height: 100%;
+  margin: 1rem 0;
+}
+
+header .navbar-logo {
+  text-align: center;
+}
+
+header .navbar ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+header .navbar a:hover {
+  background-color: unset;
+}
+
+.page-heading span {
+  display: block;
+}
+
+.page-heading h1 {
+  font-size: 4rem;
+  line-height: 1.3;
+}
+
+.page-heading p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+br {
+  line-height: 3;
+}
+
+.history .grid {
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+
+.history .history-info {
+  text-align: center;
+  padding: 1rem;
+}
+
+.history h2 {
+  font-size: 2rem;
+}
+
+.benefits .grid {
+  grid-template-columns: 1fr;
+}
+
+
+
+
+.about span {
+  display: block;
+}
+
+.information .grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.information .information-section {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.information h2 {
+  font-size: 3rem;
+}
+
+.information li {
+  padding-bottom: 1rem;
+}
+
+.reviews .grid {
+  padding: 1rem;
+}
+
+.reviews .card {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0;
+  text-align: center;
+}
+
+.reviews img {
+  width: 250px;
+  height: 250px;
+  justify-self: center;
+  align-self: flex-end;
+  padding-bottom: 1rem;
+}
+
+.form {
+  background-position: -1250px -1000px;
+}
+
+.details,
+.details .grid {
+  padding: 0;
+}
+
+.details .grid {
+  grid-template-columns: 1fr;
+  gap: 3px;
+  padding-bottom: 3px;
+}

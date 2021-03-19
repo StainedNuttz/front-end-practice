@@ -6,63 +6,72 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <link rel="stylesheet" media="screen and (max-width: 1400px)" href="container.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <title>Hotel BT | Contact Us</title>
 </head>
 
 <body>
-  <header class="navbar">
-    <div class="container flex">
-      <a href="./index.html" class="navbar-logo">HBT</a>
-      <nav>
-        <ul class="flex">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-        </ul>
-      </nav>
+  <header>
+    <div class="navbar">
+      <div class="container flex">
+        <a href="./index.html" class="navbar-logo">HBT</a>
+        <nav>
+          <ul class="flex">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
   <section class="form bg-img-s">
     <div class="bg-img-o"></div>
     <div class="container page-heading">
-      <h1 class="text-center"><span>Contact</span> Us</h1>
-      <h2 class="text-center">Please fill out the form below to contact us.</h2>
-      <form class="flex">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" name="name" id="name">
-        </div>
-      
-        <div>
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email">
-        </div>
-      
-        <div>
-          <label for="message">Message</label>
-          <textarea name="message" id="message" rows="8"></textarea>
-        </div>
-      
-        <button type="submit" class="btn light">Submit</button>
-      </form>
+      <div class="form-heading">
+        <h1 class="text-center"><span>Contact</span> Us</h1>
+        <h2 class="text-center">Please fill out the form below to contact us.</h2>
+      </div>
+      <div class="form-wrapper">
+        <form>
+          <div class="form-block">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+          </div>
+        
+          <div class="form-block">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+          </div>
+        
+          <div class="form-block">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="8"></textarea>
+          </div>
+          <div class="form-block">
+            <input type="submit" class="btn" value="Submit"></input>
+          </div class="form-block">
+        </form>
+      </div>
     </div>
   </section>
 
   <section class="details py-3">
     <div class="container grid text-center">
-      <div class="card light">
+      <div class="card dark">
         <i class="fas fa-hotel fa-2x"></i>
         <h3>Location</h3>
         <p>50 Main St, Boston MA</p>
       </div>
-      <div class="card light">
+      <div class="card dark">
         <i class="fas fa-phone fa-2x"></i>
         <h3>Phone Number</h3>
         <p>(617)-555-5213</p>
       </div>
-      <div class="card light">
+      <div class="card dark">
         <i class="fas fa-envelope fa-2x"></i>
         <h3>Email Address</h3>
         <p>enquiry@hotelbt.com</p>

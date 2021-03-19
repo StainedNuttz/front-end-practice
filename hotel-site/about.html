@@ -6,13 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <link rel="stylesheet" media="screen and (max-width: 1400px) (min-width: 767px)" href="container.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <title>Hotel BT | About Us</title>
 </head>
 
 <body>
-  <header class="navbar">
-    <div class="container flex">
+  <header>
+    <div class="navbar">
+      <div class="container flex">
         <a href="./index.html" class="navbar-logo">HBT</a>
         <nav>
           <ul class="flex">
@@ -21,6 +24,7 @@
             <li><a href="./contact.html">Contact</a></li>
           </ul>
         </nav>
+      </div>
     </div>
   </header>
 
@@ -63,11 +67,11 @@
     <div class="container">
       <h2 class="text-center">What our <span>guests</span> say</h2>
       <div class="reviews-cards grid">
-        <div class="card">
+        <div class="card grid">
           <img src="images/person-1.jpg" alt="Photo of the reviewer">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsam quam, cum dolor a provident illo optio adipisci sapiente repellat, sit et, ullam soluta doloribus quos ea accusantium incidunt veritatis.</p>
         </div>
-        <div class="card">
+        <div class="card grid">
           <img src="images/person-2.jpg" alt="Photo of the reviewer">
           <p>Dolores provident accusamus saepe ipsum omnis nisi, aspernatur minima perferendis!</p>
         </div>

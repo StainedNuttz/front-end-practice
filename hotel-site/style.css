@@ -26,6 +26,7 @@ body {
 
 .container {
   max-width: 1400px;
+  padding: 0 1rem;
   margin: 0 auto;
   height: 100%;
 }
@@ -97,20 +98,20 @@ body {
   height: 100%;
   width: 100%;
   z-index: 1;
-  background-color: #0008;
+  background-color: #0009;
   overflow-y: hidden;
 }
 
 .page-heading {
   line-height: 1.6;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.4rem;
 }
 
 .page-heading h1 {
   font-size: 80px;
   font-weight: 700;
-  letter-spacing: 3px;  
+  letter-spacing: 3px;
 }
 
 /* For background image overlay */
@@ -163,42 +164,42 @@ span {
 }
 
 /* Navbar */
-.navbar {
+header .navbar {
   width: 100%;
   background-color: var(--primary-color);
   height: var(--navbar-height);
 }
 
-.navbar .container {
+header .navbar .container {
   justify-content: space-between;
 }
 
-.navbar ul {
+header .navbar ul {
   list-style: none;
 }
 
-.navbar li {
+header .navbar a {
+  padding: calc(60px - 42px) 2rem;
+}
+
+header .navbar li {
+  height: 100%;
   font-weight: 500;
 }
 
-.navbar nav a {
-  padding: 18px;
-  padding-top: 20px;
-}
-
-.navbar-logo {
+header .navbar-logo {
   font-weight: 900;
   font-size: 40px;
 }
 
-.navbar a:hover,
-.navbar .navbar-logo:hover {
+header .navbar a:hover,
+header .navbar .navbar-logo:hover {
   background-color: var(--highlight-color);
   color: var(--secondary-color);
   cursor: pointer;
 }
 
-.navbar .navbar-logo:hover {
+header .navbar .navbar-logo:hover {
   background-color: unset;
 }
 
@@ -212,6 +213,14 @@ span {
   margin-bottom: 1rem;
 }
 
+.history .container {
+  padding-right: 0;
+}
+
+.history-info {
+  padding: 1rem;
+}
+
 /* Benefits */
 .benefits {
   background-image: url(images/photo-1.jpg);
@@ -219,7 +228,7 @@ span {
 
 .benefits .grid {
   grid-template-columns: repeat(3, 1fr);
-  gap: 75px;
+  gap: 50px;
 }
 
 .benefits .card {
@@ -253,13 +262,14 @@ span {
 
 /* Information */
 .information h2 {
-  font-size: 32px;
+  font-size: 2.5rem;
 }
 
 .information .information-section {
   padding: 30px 0;
   height: 100%;
   justify-self: center;
+  font-size: 1.2rem;
 }
 
 .information .information-section ul {
@@ -274,6 +284,8 @@ span {
 
 .reviews img {
   border-radius: 100%;
+  width: 150px;
+  height: 150px;
 }
 
 .reviews h2 {
@@ -288,14 +300,12 @@ span {
 
 .reviews .card {
   background-color:rgba(194, 151, 87, 0.548);
-  font-size: 22px;
+  font-size: 1.4rem;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 300;
   color: var(--primary-text-color);
   
-  display: grid;
   grid-template-columns: 1fr 8fr;
-  align-items: center;
   gap: 70px;
   padding: 30px 80px;
 }
@@ -315,59 +325,80 @@ span {
 }
 
 .form .container {
-  padding: 60px;
+  padding: 3rem 0;
 }
 
-.form h1 {
-  line-height: 1;
+.form .form-heading h1 {
+  line-height: 1.3;
 }
 
-.form h2 {
-  font-weight: 300;
-  font-size: 24px;
-}
-
-.form label {
-  font-size: 16px;
+.form .form-heading h2 {
+  font-size: 1.5rem;
   font-weight: 300;
 }
 
-.form input,
-.form textarea {
-  font-size: 20px;
-  font-weight: 300;
-  font-family: "Poppins";
+.form .form-heading {
+  padding-bottom: 3rem;
+}
 
+.form .form-wrapper {
+  background-color: var(--primary-color);
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.form .form-block {
+  padding: 0.5rem 1rem;
+}
+
+.form form label {
   display: block;
-  width: 100%;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.form form textarea {
   resize: none;
+  font-size: 1rem;
+}
+
+.form .form-block:nth-child(3) > label { 
+  padding-bottom: 0.5rem;
+}
+
+.form form .btn {
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+  height: 2.5rem;
+  font-weight: 500;
+}
+
+.form form input {
+  height: 2rem;
+}
+
+.form form input,
+.form form textarea {
   background-color: var(--highlight-color);
-  color: var(--secondary-color);
   border: none;
-  padding: 5px;
-}
-
-.form form {
-  flex-direction: column;
-  max-width: 550px;
-  padding: 20px 0;
-  margin: 60px auto;
-  background-color: rgba(48, 48, 48, 0.6);
-  box-shadow: 3px 3px 5px #0008;
-}
-
-.form .container div {
   width: 100%;
-  padding: 0 2rem;
-  margin-bottom: 1rem;
+
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 0 0.25rem;
 }
 
-button.btn {
-  border: none;
-  width: 150px;
+.form form input:focus,
+.form form textarea:focus {
+  outline: solid 1px rgba(194, 151, 87, 0.548);
 }
 
-button:hover {
+.form form .btn:hover {
   cursor: pointer;
 }
 
@@ -383,4 +414,5 @@ button:hover {
 
 .details .card {
   padding: 20px;
+  box-shadow: none;
 }
