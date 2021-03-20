@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 1100px)" href="widescreen.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <title>A-Z Financial | Investment</title>
+</head>
+<body id="home">
+
+  <!-- Navbar  -->
+  <nav id="navbar">
+    <div class="container flex">
+      <h1 class="logo">
+        <span class="text-primary"><i class="fas fa-money-check"></i> A-Z</span>
+        Investment
+      </h1>
+      <ul class="flex">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#what">What</a></li>
+        <li><a href="#who">Who</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Showcase  -->
+  <header id="showcase">
+    <div class="bg"></div>
+    <div class="container flex">
+      <div class="showcase-text">
+        <h1 class="l-heading">
+          Never worry about money again
+        </h1>
+        <p class="lead">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>Sunt, voluptas temporibus! Consequatur laboriosam vitae labore.
+        </p>
+        <a href="#what" class="btn">Read More</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section: What -->
+  <section id="what" class="bg-light py-1">
+    <div class="container">
+      <h2 class="m-heading text-center"><span class="text-primary">What</span> We Do</h2>
+      <div class="items flex">
+        <div class="item">
+          <i class="fas fas fa-university fa-2x"></i>
+          <div>
+            <h3>Investment Banking</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, expedita.</p>
+          </div>
+        </div>
+        <div class="item">
+          <i class="fas fas fa-book-reader fa-2x"></i>
+          <div>
+            <h3>Portfolio Management</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, expedita.</p>
+          </div>
+        </div>
+        <div class="item">
+          <i class="fas fas fa-pencil-alt fa-2x"></i>
+          <div>
+            <h3>Custodial Fees</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, expedita.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section: Who  -->
+  <section id="who">
+    <div class="flex">
+      <div class="who-img"></div>
+      <div class="who-text bg-dark p-2">
+        <h2 class="m-heading">
+          <span class="text-primary">Who</span> We Are
+        </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur optio similique, aut officiis saepe, facere illo fuga dicta cum incidunt impedit dolore, voluptas deleniti harum debitis et recusandae perspiciatis quod.
+        </p>
+        <h3 class="s-heading">Our Team</h3>
+        <ul class="list">
+          <li>
+            <span class="text-bold">CEO</span>
+            <br>Deanna Batz
+          </li>
+          <li>
+            <span class="text-bold">Future Marketing Analyst</span>
+            <br>Earl Torp
+          </li>
+          <li>
+            <span class="text-bold">Senior Tactics Manager</span>
+            <br>Katie Trantow
+          </li>
+          <li>
+            <span class="text-bold">Senior Accountant</span>
+            <br>Heidi Jast
+          </li>
+          <li>
+            <span class="text-bold">Global Brand Architect</span>
+            <br>Victoria Kautzer
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Clients -->
+  <section id="clients" class="py-3 bg-light">
+    <div class="container">
+      <h2 class="m-heading text-center">
+        Our <span class="text-primary">Clients</span>     
+      </h2>
+      <div class="items flex">
+        <div><i class="fab fa-uber fa-5x"></i></div>
+        <div><i class="fab fa-tiktok fa-5x"></i></div>
+        <div><i class="fab fa-snapchat-square fa-5x"></i></div>
+        <div><i class="fab fa-node-js fa-5x"></i></div>
+        <div><i class="fab fa-wikipedia-w fa-5x"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Contact -->
+  <section id="contact" class="bg-dark">
+    <div class="container flex">
+      <div class="contact-form bg-primary p-2 text-center">
+        <h2 class="m-heading"><span style="color: #000">Contact</span> Us</h2>
+        <p>Please use the form below to contact us</p>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" placeholder="Enter Email">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="number" name="phone" id="phone" placeholder="Enter Phone Number">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea name="message" placeholder="Enter Message"></textarea>
+          </div>
+          <input type="submit" value="Send" class="btn btn-dark">
+        </form>
+      </div>
+      <div class="contact-currencies">
+        <table>
+          <tr class="table-heading">
+            <th class="bg-primary">Currency</th>
+            <th class="bg-primary">Per USD</th>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>0.74</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
