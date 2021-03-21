@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 1100px)" href="widescreen.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 1400px)" href="widescreen.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
@@ -16,6 +16,7 @@
 <body id="home">
 
   <!-- Navbar  -->
+  <div id="placeholder"></div>
   <nav id="navbar">
     <div class="container flex">
       <h1 class="logo">
@@ -80,7 +81,7 @@
   <!-- Section: Who  -->
   <section id="who">
     <div class="flex">
-      <div class="who-img"></div>
+      <div class="who-img bg-light"></div>
       <div class="who-text bg-dark p-2">
         <h2 class="m-heading">
           <span class="text-primary">Who</span> We Are
@@ -132,12 +133,11 @@
   </section>
 
   <!-- Section: Contact -->
-  <section id="contact" class="bg-dark">
+  <section id="contact" class="bg-dark py-2">
     <div class="container flex">
-      <div class="contact-form bg-primary p-2 text-center">
-        <h2 class="m-heading"><span style="color: #000">Contact</span> Us</h2>
-        <p>Please use the form below to contact us</p>
-        <form>
+      <div class="contact-form">
+        <h2 class="m-heading text-center"><span class="text-primary">Contact</span> Us</h2>
+        <form class="bg-primary p-1">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="Enter Name">
@@ -148,49 +148,37 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="number" name="phone" id="phone" placeholder="Enter Phone Number">
+            <input type="tel" name="phone" id="phone" placeholder="Enter Phone Number">
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea name="message" placeholder="Enter Message"></textarea>
+            <textarea name="message" placeholder="Enter Message" rows="10"></textarea>
           </div>
           <input type="submit" value="Send" class="btn btn-dark">
         </form>
       </div>
       <div class="contact-currencies">
+        <h2 class="m-heading text-center"><span class="text-primary">Currency</span> Rates</h2>
+        <p class="lead"></p>
         <table>
-          <tr class="table-heading">
+          <thead class="table-heading">
             <th class="bg-primary">Currency</th>
             <th class="bg-primary">Per USD</th>
-          </tr>
-          <tr>
-            <td>GBP</td>
-            <td>0.74</td>
-          </tr>
-          <tr>
-            <td>GBP</td>
-            <td>0.74</td>
-          </tr>
-          <tr>
-            <td>GBP</td>
-            <td>0.74</td>
-          </tr>
-          <tr>
-            <td>GBP</td>
-            <td>0.74</td>
-          </tr>
-          <tr>
-            <td>GBP</td>
-            <td>0.74</td>
-          </tr>
-          <tr>
-            <td>GBP</td>
-            <td>0.74</td>
-          </tr>
+            <th class="bg-primary">Custodial <br>Fee</th>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
         </table>
       </div>
     </div>
   </section>
+
+  <!-- Footer  -->
+  <footer id="footer" class="bg-primary py-1">
+    <div class="container text-center">
+      <h2>Copyright &COPY; 2021 - A-Z Investment</h2>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
 </body>

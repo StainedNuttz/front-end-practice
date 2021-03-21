@@ -4,12 +4,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  z-index: 1;
-  overflow-anchor: none;
 }
 
-body {
+body, html {
   font-family: "Noto Sans", sans-serif;
+  height: 100%;
+}
+
+:target {
+  
 }
 
 a {
@@ -77,6 +80,7 @@ p {
   padding: 1rem 2rem;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -86,6 +90,9 @@ p {
 .btn-dark {
   background: #333;
   color: #fff;
+}
+.btn-dark:hover {
+  background: #555;
 }
 
 .list {
@@ -112,7 +119,7 @@ p {
 
 .bg {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
@@ -132,12 +139,17 @@ p {
 
 .bg-primary {
   background: var(--primary);
-  color: #fff;
+  color: #222;
 }
 
 /* Navbar */
+#placeholder {
+  height: var(--navbar-height);
+}
+
 #navbar {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 2;
   background: #333;
@@ -161,20 +173,25 @@ p {
 }
 
 #navbar ul li a:hover {
-  background: var(--primary-color);
+  background: var(--primary);
   border-radius: 5px;
 }
 
 /* Showcase */
 #showcase {
+  z-index: 0;
   position: relative;
   background: #333 url("images/showcase-bg.jpg") no-repeat center center/cover;
+
+  /* fallback for browsers not supporting var */
   height: calc(100vh - var(--navbar-height));
+  height: calc(var(--vh, 1vh) - var(--navbar-height));
 }
 
 #showcase .flex {
   flex-direction: column;
   height: 100%;
+  padding: 1rem 0;
 }
 
 #showcase .showcase-text {
@@ -200,10 +217,6 @@ p {
 }
 
 /* Section: Who */
-#who .container {
-  /* max-width: 100%; */
-}
-
 #who h3 {
   margin-top: 3rem;
 }
@@ -226,7 +239,7 @@ p {
   background-image: url("images/who-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 
 /* Section: Clients  */
@@ -250,14 +263,6 @@ p {
   flex: 1;
 }
 
-#contact .container {
-  padding: 0;
-}
-
-#contact .contact-form {
-  width: 300px;
-}
-
 #contact .contact-form .form-group {
   margin: 0.75rem;
 }
@@ -270,18 +275,25 @@ p {
 #contact .contact-form textarea {
   width: 100%;
   padding: 0.5rem;
+  resize: none;
+}
+
+#contact .contact-form .btn {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: block;
 }
 
 #contact .contact-currencies {
-  margin: 0 0.5rem;
-  color: #222;
+  margin: 1rem 0.5rem;
 }
 
 #contact .contact-currencies table {
   font-size: 1rem;
   border-collapse: collapse;
-  width: 500px;
   margin: 0 auto;
+  color: #222;
 }
 
 #contact .contact-currencies th {
@@ -292,22 +304,23 @@ p {
   padding-left: 0.75rem;
 }
 
-#contact .contact-currencies th:first-child {
-  border-top-left-radius: 7px;
-}
-#contact .contact-currencies th:last-child {
-  border-top-right-radius: 7px;
-}
-
 #contact .contact-currencies td {
   padding: 0.75rem;
   text-align: center;
 }
 
+#contact .contact-currencies td:last-child {
+  font-weight: bold;
+}
+
 #contact .contact-currencies tr:nth-child(even) {
   background-color: #fff;;
 }
-#contact .contact-currencies tr:nth-child(2n+3) {
+#contact .contact-currencies tr:nth-child(odd) {
   background-color: #eee;
 }
 
+#footer h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}

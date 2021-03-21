@@ -1,0 +1,36 @@
+:root {
+  --navbar-height: 6rem;
+}
+
+.l-heading {
+  font-size: 3rem;
+}
+
+#what .flex,
+#who .flex,
+#clients .flex,
+#contact .flex,
+#navbar .container.flex {
+  flex-direction: column;
+}
+
+#who .who-img {
+  /* trick to display background img in an empty div (0 height) */
+  padding-bottom: 66.6%;
+  order: 2;
+}
+
+#clients .items div {
+  padding-top: 3rem;
+}
+#clients .items div:first-child {
+  padding-top: 0;
+}
+
+#contact .contact-form {
+  align-self: stretch;
+}
+
+#navbar {
+  padding-top: 0.5rem;
+}
