@@ -28,6 +28,7 @@ body, html {
 .slide {
   height: 100%;
   text-align: center;
+  z-index: 5;
 }
 
 .slide .container {

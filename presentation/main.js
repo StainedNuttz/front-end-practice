@@ -67,7 +67,7 @@ $(document).ready(function(){
   }
 
   // smooth scroll for each slide transition
-  $('.slide a').on('click', function(event) {
+  $('.slide a, .menu a').on('click', function(event) {
     if (this.hash !== '') {
       event.preventDefault();
       const hash = this.hash;
@@ -89,4 +89,12 @@ function generateSlide(h1, p, i) {
   div.insertAdjacentHTML('afterbegin', '<div class="container flex"><h1>' + h1 + '</h1><p>' + p + '</p><div class="buttons"><div class="container flex"><a class="previous flex" href="#slide' + (i-1).toString() + '">Previous<i class="fas fa-arrow-circle-up"></i></a><a class="next flex" href="#slide' + (i+1).toString() + '">Next<i class="fas fa-arrow-circle-down"></i></a></div></div></div>');
 
   $('body').append(div);
+
+  var li = document.createElement("li");
+  li.insertAdjacentHTML('afterbegin', '<a href="#slide' + i + '">Slide ' + i + '</a>');
+  $(li).on('click', function() {
+    $('.toggler').prop('checked', false);
+  });
+
+  $('.menu ul').append(li);
 }
