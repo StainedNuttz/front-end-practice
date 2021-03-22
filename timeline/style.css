@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #3170c4;
+  --secondary-color: #1c8cd1;
+}
+
+body {
+  font-family: "Poppins";
+  font-weight: 400;
+  height: 100%;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header {
+  padding: 3rem;
+  background-color: var(--secondary-color);
+}
+
+#header .header-text {
+  flex-direction: column;
+}
+#header .header-text h1 {
+  margin-bottom: 1rem;
+}
+#header .header-text p {
+  font-weight: 500;
+}
+
+#timeline {
+  overflow-x: hidden;
+}
+
+#timeline ul {
+  width: 4px;
+  background-color: #fff;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+#timeline li {
+  margin: 1rem 0;
+  position: relative;
+  text-align: center;
+}
+
+#timeline li:nth-child(odd) {
+  align-items: flex-start;
+  margin-left: 2rem;
+  transform: translateX(2000px);
+  animation-name: test;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+#timeline li:nth-child(even) {
+  align-self: flex-end; 
+  margin-right: 2rem;
+  transform: translateX(-2000px);
+  animation-name: test;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+#timeline li > div {
+  width: 500px;
+  padding: 1rem;
+  background: var(--secondary-color);
+}
+
+#timeline li:nth-child(odd) > div::before {
+  content: '';
+  position: absolute;
+  
+  border-bottom: 15px solid transparent;
+  border-top: 15px solid transparent;
+  border-right: 20px solid var(--secondary-color);
+
+  left: -1rem;
+}
+
+#timeline li:nth-child(odd) > div::after {
+  content: '';
+  position: absolute;
+
+  background: var(--secondary-color);
+  left: calc(-2rem - 5.5px);
+  top: calc(1rem + 7.5px);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+}
+
+#timeline li:nth-child(even) > div::before {
+  content: '';
+  position: absolute;
+  
+  border-bottom: 15px solid transparent;
+  border-top: 15px solid transparent;
+  border-left: 20px solid var(--secondary-color);
+  left: 495px;
+}
+
+#timeline li:nth-child(even) > div::after {
+  content: '';
+  position: absolute;
+
+  background: var(--secondary-color);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  left: 522.5px;
+  top: calc(1rem + 7.5px);
+}
+
+@keyframes test {
+  to {
+    transform: translateX(0);
+  }
+}
