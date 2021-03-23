@@ -37,6 +37,7 @@ body {
 
 #header .header-text {
   flex-direction: column;
+  text-align: center;
 }
 #header .header-text h1 {
   margin-bottom: 1rem;
@@ -50,90 +51,114 @@ body {
 }
 
 #timeline ul {
-  width: 4px;
-  background-color: #fff;
   list-style: none;
-  display: flex;
-  flex-direction: column;
 }
 
 #timeline li {
-  margin: 1rem 0;
+  width: 5px;
+  background-color: #fff;
   position: relative;
-  text-align: center;
+  /* text-align: center; */
+  padding-top: 1rem;
 }
 
-#timeline li:nth-child(odd) {
-  align-items: flex-start;
-  margin-left: 2rem;
-  transform: translateX(2000px);
-  animation-name: test;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-}
-
-#timeline li:nth-child(even) {
-  align-self: flex-end; 
-  margin-right: 2rem;
-  transform: translateX(-2000px);
-  animation-name: test;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-}
-
-#timeline li > div {
-  width: 500px;
+/* Each Box */
+#timeline ul li div {
   padding: 1rem;
+  position: relative;
+  width: 500px;
+  background-color: var(--secondary-color);
+  left: 2rem;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(500px);
+  /* visibility: hidden;
+  opacity: 0; */
+}
+
+/* Left Side Box */
+#timeline ul li:nth-child(even) div {
+  left: calc(-496px - 2rem);
+  transform: translateX(-500px);
+}
+
+#timeline ul li.show div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+#timeline ul li.show:after {
   background: var(--secondary-color);
 }
 
-#timeline li:nth-child(odd) > div::before {
+/* Circles */
+#timeline ul li::after {
   content: '';
   position: absolute;
-  
-  border-bottom: 15px solid transparent;
-  border-top: 15px solid transparent;
-  border-right: 20px solid var(--secondary-color);
-
-  left: -1rem;
+  height: 25px;
+  width: 25px;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  transition: background-color 0.5s ease-in-out;
+  top: 25%;
 }
 
-#timeline li:nth-child(odd) > div::after {
+/* Arrow Base */
+#timeline ul li div::before {
   content: '';
   position: absolute;
-
-  background: var(--secondary-color);
-  left: calc(-2rem - 5.5px);
-  top: calc(1rem + 7.5px);
-  border-radius: 100%;
-  width: 15px;
-  height: 15px;
+  top: calc(25% - 8px);
+  border-style: solid;
 }
 
-#timeline li:nth-child(even) > div::before {
-  content: '';
-  position: absolute;
-  
-  border-bottom: 15px solid transparent;
-  border-top: 15px solid transparent;
-  border-left: 20px solid var(--secondary-color);
-  left: 495px;
+/* Right Side Arrows  */
+#timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent var(--secondary-color) transparent transparent;
 }
 
-#timeline li:nth-child(even) > div::after {
-  content: '';
-  position: absolute;
-
-  background: var(--secondary-color);
-  border-radius: 100%;
-  width: 15px;
-  height: 15px;
-  left: 522.5px;
-  top: calc(1rem + 7.5px);
+#timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent var(--secondary-color);
 }
 
 @keyframes test {
   to {
     transform: translateX(0);
+  }
+}
+
+@media(max-width: 1100px) {
+  #timeline ul li div {
+    width: 420px;
+  }
+  #timeline ul li:nth-child(even) div {
+    left: calc(-416px - 2rem);
+  }
+  #timeline ul li:nth-child(odd) div {
+    left: 2rem;
+  }
+}
+
+@media(max-width: 915px) {
+  #timeline .flex {
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+  #timeline ul li div {
+    width: calc(100vw - 5rem);
+  }
+  #timeline ul li:nth-child(even) div {
+    left: 2rem;
+  }
+  #timeline ul li:nth-child(even) div::before {
+    right: initial;
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent var(--secondary-color) transparent transparent;
   }
 }
