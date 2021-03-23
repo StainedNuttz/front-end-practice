@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lexend";
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header,
+#page {
+  text-align: center;
+}
+
+header #navbar .container {
+  background-color: white;
+}
+
+header #navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+header #navbar ul li {
+  position: relative;
+  padding: 1rem 1.5rem;
+}
+
+header #navbar a {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+}
+
+header #navbar ul li:hover:not(.drop) a:before,
+header #navbar .dropdown a:hover:before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  top: 22px;
+  overflow-x: hidden;
+  z-index: 1;
+  background-color: #000;
+  animation-name: underline;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+header #navbar .dropdown a:hover:before {
+  background-color: #fff;
+}
+
+header #navbar ul li {
+  position: relative;
+  cursor: pointer;
+}
+
+header #navbar ul li.drop:hover {
+  background-color: black;
+  color: #fff;
+}
+
+header #navbar span:before {
+  content: '>';
+  font-weight: 300;
+  position: relative;
+  left: -10px;
+  top: -1px;
+  font-weight: 600;
+}
+
+header #navbar ul li:hover .dropdown {
+  visibility: visible;
+}
+
+header #navbar .dropdown {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  top: 100%;
+}
+
+header #navbar .dropdown ul {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+header #navbar .dropdown a {
+   cursor: pointer;
+}
+
+#page .container {
+  background-color: teal;
+  height: 300px;
+}
+
+#page h1 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+@keyframes underline {
+  to {
+    width: 100%;
+  }
+}
