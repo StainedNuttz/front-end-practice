@@ -184,6 +184,8 @@ p {
   background: #333 url("images/showcase-bg.jpg") no-repeat center center/cover;
 
   /* fallback for browsers not supporting var */
+  height: 100vh;
+  
   height: calc(100vh - var(--navbar-height));
   height: calc(var(--vh, 1vh) - var(--navbar-height));
 }
