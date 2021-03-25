@@ -1,0 +1,111 @@
+/* Home */
+#main-nav .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+#main-nav .nav-left .logo h1 {
+  margin: 0.5rem 0;
+}
+
+#main-nav .nav-right {
+  flex-direction: row;
+}
+
+#main-nav .nav-right .nav-socials {
+  display: none;
+} 
+
+#main-nav .nav-right .nav-links {
+  padding: 1.2rem 0.1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  background: #c9c9c9;
+}
+
+#main-nav .nav-right .nav-links a {
+  background: var(--light-color);
+}
+
+#showcase .container.grid {
+  grid-template-columns: 1fr;
+}
+
+#showcase .showcase-text span {
+  font-size: 3rem;
+}
+#showcase .showcase-text h1 {
+  font-size: 2rem;
+}
+#showcase .showcase-text p {
+  display: none;
+}
+
+#home-articles .articles-container {
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-areas: "a"
+                       "b"
+                       "d"
+                       "c"
+                       "j"
+                       "e"
+                       "g"
+                       "h"
+                       "f"
+                       "i";
+}
+
+#home-articles .articles-container .card:nth-child(3) {
+  grid-template-columns: 1fr;
+}
+
+#main-footer .container.grid h2 {
+  font-size: 2rem;
+}
+
+#main-footer .container.grid {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#main-footer .container > div:last-child {
+  grid-column: 1;
+  margin: 0;
+}
+
+.article-structure .container .inner {
+  grid-template-columns: 1fr;
+}
+
+.article-structure .container .inner article {
+  flex-direction: column;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.article-structure .container .inner article:after {
+  content: '';
+  border: 1px #3333 dotted;
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  width: 100%;
+}
+
+.article-structure .container .inner aside {
+  grid-column: 1;
+}
+
+#article .meta {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem 0;
+  border-top: 1px #3333 dotted;
+  border-bottom: 1px #3333 dotted;
+  padding: 1rem 0;
+}
+#article .meta span {
+  margin: 0.5rem 0;
+  margin-bottom: 1rem;
+}

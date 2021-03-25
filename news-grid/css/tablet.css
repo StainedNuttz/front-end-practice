@@ -1,0 +1,13 @@
+#home-articles .articles-container {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "a a a"
+                       "c c c"
+                       "h e d"
+                       "b b f"
+                       "b b j"
+                       "g g i";
+}
+
+#home-articles .articles-container .card:nth-child(9) {
+  grid-template-columns: 1fr;
+}
