@@ -17,9 +17,10 @@
 
   #main-nav .container {
     display: flex;
+    margin: 1rem 0;
   }
 
-  #main-nav .container .nav-left a.logo {
-    margin: 0 !important;
+  #main-nav .container .nav-left .logo h1 {
+    margin-top: 0.7rem;
   }
 }

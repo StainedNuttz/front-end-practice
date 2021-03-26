@@ -3,6 +3,8 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 #main-nav .nav-left .logo h1 {
@@ -20,7 +22,6 @@
 #main-nav .nav-right .nav-links {
   padding: 1.2rem 0.1rem;
   border-radius: 5px;
-  margin-bottom: 0.5rem;
   background: #c9c9c9;
 }
 
