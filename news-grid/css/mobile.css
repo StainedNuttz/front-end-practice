@@ -39,9 +39,6 @@
 #showcase .showcase-text h1 {
   font-size: 2rem;
 }
-#showcase .showcase-text p {
-  display: none;
-}
 
 #home-articles .articles-container {
   grid-template-columns: repeat(1, 1fr);
