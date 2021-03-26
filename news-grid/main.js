@@ -7,7 +7,7 @@ document.querySelector('#showcase').style.setProperty('--vh', `${vh}px`);
 // the viewport dimensions upon the browser UI resizing (url bar showing for instance).
 // on desktops and laptops, the browser window could be resized and in that case we let the viewport dimensions change like normal.
 
-$(window).on(‘orientation’, updateViewheight);
+$(window).on(‘orientationchange’, updateViewheight);
 
 $(window).resize(function () {
   if (screen.width > 768) {
