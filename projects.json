@@ -1,0 +1,51 @@
+{
+  "projects" : [
+    {
+      "name" : "News Grid",
+      "image" : "test1.png",
+      "text" : "A news site designed around using mainly CSS Grid. Very responsive.",
+      "languages" : ["html", "css", "js"],
+      "link" : "news-grid"
+    },
+
+    {
+      "name" : "Presentation",
+      "image" : "test2.png",
+      "text" : "A beautiful, kahoot-looking presentation navigator with slides being created from JSON. Includes a hamburger menu.",
+      "languages" : ["html", "css", "js"],
+      "link": "presentation"
+    },
+
+    {
+      "name": "Wehrmacht",
+      "image": "test2.png",
+      "text": "A fictitious site about the Wehrmacht, styled in a similar way to a cloud hosting site.",
+      "languages": ["html", "css"],
+      "link": "wehrmacht-landing-page"
+    },
+
+    {
+      "name" : "Hotel BT",
+      "image" : "test2.png",
+      "text" : "A fictional hotel site, using simple JavaScript to fix viewport problems on mobile",
+      "languages" : ["html", "css", "js"],
+      "link": "hotel-site"
+    },
+    
+    {
+      "name" : "Timeline",
+      "image" : "test2.png",
+      "text" : "A vertical timeline which animates in each timeline item as the user scrolls down",
+      "languages" : ["html", "css", "js"],
+      "link": "timeline"
+    },
+    {
+      "name" : "Simple Dropdown",
+      "image" : "test2.png",
+      "text" : "A simple implementation of a dropdown menu using pure CSS.",
+      "languages" : ["html", "css"],
+      "link": "simple-dropdown"
+    }
+    
+  ]
+}
