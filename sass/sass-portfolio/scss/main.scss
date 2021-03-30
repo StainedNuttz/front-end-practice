@@ -1,0 +1,282 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo';
+  line-height: 1.6;
+  background: $dark-color;
+  color: $light-color;
+}
+
+.container {
+  max-width: $max-width;
+  padding: 0 1rem;
+  margin: 0 auto;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: set-text-color(#000);
+}
+
+img {
+  width: 100%;
+}
+
+#main-header {
+  height: 100vh;
+
+  #main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    .logo {
+      margin: 0;
+      margin-top: 0.5rem;
+      font-size: 3.5rem;
+      letter-spacing: 0.6rem;
+      line-height: 1;
+      font-weight: 700;
+      overflow-y: hidden;
+    }
+
+    ul {
+      display: flex;
+      li {
+        padding: 1rem;
+
+        a {
+          font: {
+            size: 1.2rem;
+            weight: 400;
+          }
+          &:hover,
+          &.current {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+
+  .showcase {
+    display: flex;
+    height: 80%;
+    position: relative;
+    
+    &-text {
+      align-self: center;
+      h2 {
+        font-size: 4rem;
+        font-weight: 300;
+        left: -2.5px;
+        @include animate-slideY(500px, 1s);
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 1.1rem;
+        max-width: 450px;
+      }
+
+      [class^='btn-'] {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        font-weight: 700;
+        @include animate-slideY(-500px, 1s, 1s);
+      }
+
+      h3,
+      p {
+        @include animate-slideX(-500px, 1s, 1s);
+      }
+    }
+
+    &-img {
+      background: {
+        image: $showcase-img;
+        position: center;
+        repeat: no-repeat;
+      }
+      position: absolute;
+      right: -1rem;
+      bottom: 12.5%;
+      height: 488px;
+      width: 750px;
+      z-index: -1;
+    }
+
+  }
+}
+
+#home {
+  &-a {
+    background: $light-color;
+    color: $dark-color;
+
+    .specials {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      
+      > div {
+        i {
+          color: $main-color;
+        }
+        h3 {
+          text-transform: uppercase;
+          font-size: 2rem;
+          letter-spacing: 0.2rem;
+        }
+      }
+    }
+  }
+
+  &-b {
+    background-color: $light-color;
+    padding-bottom: 0;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      li {
+        line-height: 2;
+        &.stats-title {
+          font-size: 1.5rem;
+        }
+        &.stats-number {
+          font-size: 2rem;
+          font-weight: 700;
+        }
+      }
+
+      ul {
+        padding: 3rem 0;
+
+        &:nth-child(odd) {
+          background-color: #ccc;
+          color: set-text-color(#ccc);
+        }
+        
+        &:nth-child(even) {
+          background: #ddd;
+          color: set-text-color(#ddd);
+        }
+      }
+    }
+  }
+
+  &-c {
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+
+      &-icon {
+        margin: {
+          top: 3rem;
+          bottom: 1rem;
+        }
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        background-color: $light-color;
+        color: $dark-color;
+        position: relative;
+        border-radius: 50%;
+        transition: all 0.5s;
+        
+        &:hover {
+          height: 150px;
+          width: 150px;
+          line-height: 150px;
+          font-size: 5rem;
+          background: $main-color;
+          color: $light-color;
+
+          .steps-number {
+            background: $light-color;
+            color: $dark-color;
+          }
+        }
+      }
+
+      &-number {
+        position: absolute;
+        top: -0.3rem;
+        right: -0.3rem;
+        font: {
+          size: 2rem;
+          weight: 400;
+          family: 'Cairo' !important;
+        }
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        background: $main-color;
+        color: #fff;
+        border-radius: 50%;
+        transition: all 1s;
+        cursor: default;
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+#home-footer {
+  background: #333;
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .copyright {
+      font-weight: 400;
+    }
+    .socials {
+      display: flex;
+      i {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      a {
+        display: flex;
+        margin: 0 1rem;
+        line-height: 70px;
+        border: 2px #fff solid;
+        padding: 0.25rem;
+        border-radius: 50%;
+
+        &:hover {
+          border-color: $main-color;
+          i {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
