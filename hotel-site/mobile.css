@@ -1,6 +1,6 @@
 .bg-img,
 .bg-img-s {
-  height: 100%;
+  height: calc(-webkit-fill-available - var(--navbar-height));
 }
 
 h1,
