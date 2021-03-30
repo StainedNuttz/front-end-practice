@@ -207,7 +207,6 @@ h1, h2, h3, h4, h5, h6 {
   /* check main.js for more info */
   /* fallback for browsers not supporting var */
   height: 50vh;
-
   height: calc(var(--vh, 1vh) * 0.6);
 }
 

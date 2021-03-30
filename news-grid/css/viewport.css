@@ -1,12 +1,9 @@
-@media (max-height: 600px) {
+@media (max-height: 800px) {
   #showcase .showcase-text span {
     font-size: 3rem;
   }
   #showcase .showcase-text h1 {
     font-size: 2rem;
-  }
-  #showcase .showcase-text p {
-    display: none;
   }
 }
 
