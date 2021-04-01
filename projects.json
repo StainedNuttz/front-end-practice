@@ -17,6 +17,14 @@
     },
 
     {
+      "name" : "Ivar Portfolio",
+      "image" : "test2.png",
+      "text" : "A portfolio site styled entirely using Sass",
+      "languages" : ["html", "css", "sass"],
+      "link": "sass/sass-portfolio/dist"
+    },
+
+    {
       "name": "Wehrmacht",
       "image": "test2.png",
       "text": "A fictitious site about the Wehrmacht, styled in a similar way to a cloud hosting site.",

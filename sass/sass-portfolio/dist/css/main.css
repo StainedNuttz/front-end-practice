@@ -130,11 +130,11 @@ img {
         animation-delay: 0;
         animation-timing-function: linear;
         opacity: 0;
-        animation-name: slide-uae20cf50;
+        animation-name: slide-u37423c22;
         animation-fill-mode: forwards;
         animation-timing-function: ease; }
 
-@keyframes slide-uae20cf50 {
+@keyframes slide-u37423c22 {
   from {
     top: -500px; }
   to {
@@ -155,11 +155,11 @@ img {
         animation-delay: 1s;
         animation-timing-function: linear;
         opacity: 0;
-        animation-name: slide-u0ec56143;
+        animation-name: slide-ub1329c40;
         animation-fill-mode: forwards;
         animation-timing-function: ease; }
 
-@keyframes slide-u0ec56143 {
+@keyframes slide-ub1329c40 {
   from {
     top: 500px; }
   to {
@@ -172,18 +172,18 @@ img {
         animation-delay: 1s;
         animation-timing-function: linear;
         opacity: 0;
-        animation-name: slide-u27261016;
+        animation-name: slide-ua7030c31;
         animation-fill-mode: forwards;
         animation-timing-function: ease; }
 
-@keyframes slide-u27261016 {
+@keyframes slide-ua7030c31 {
   from {
     top: 500px; }
   to {
     opacity: 1;
     top: 0; } }
 
-@keyframes slide-u27261016 {
+@keyframes slide-ua7030c31 {
   from {
     left: -500px; }
   to {
@@ -436,26 +436,29 @@ img {
 #contact-a {
   background: #f9f9f9;
   color: #000; }
-  #contact-a form > div {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem; }
-    #contact-a form > div input {
-      border: 1px #bbb solid;
-      padding: 0.5rem; }
-      #contact-a form > div input:focus {
-        outline: none; }
-    #contact-a form > div textarea {
-      grid-column: span 2;
-      height: 8rem;
-      resize: none;
-      padding: 0.5rem;
-      border: 1px #888 solid;
-      font-family: sans-serif;
-      font-size: 1rem; }
-      #contact-a form > div textarea:focus {
-        outline: none; }
+  #contact-a form {
+    max-width: 80%;
+    margin: 0 auto; }
+    #contact-a form > div {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem; }
+      #contact-a form > div input {
+        border: 1px #bbb solid;
+        padding: 0.5rem; }
+        #contact-a form > div input:focus {
+          outline: none; }
+      #contact-a form > div textarea {
+        grid-column: span 2;
+        height: 8rem;
+        resize: none;
+        padding: 0.5rem;
+        border: 1px #888 solid;
+        font-family: sans-serif;
+        font-size: 1rem; }
+        #contact-a form > div textarea:focus {
+          outline: none; }
   #contact-a input[type="submit"] {
     width: 30%;
     margin-top: 1rem;
@@ -519,16 +522,16 @@ img {
         animation-delay: 0;
         animation-timing-function: linear;
         opacity: 0;
-        animation-name: slide-u8ba9c166;
+        animation-name: slide-ud0d93607;
         animation-fill-mode: forwards;
         animation-timing-function: ease; }
-  @keyframes slide-u8ba9c166 {
+  @keyframes slide-ud0d93607 {
     from {
       top: 500px; }
     to {
       opacity: 1;
       top: 0; } }
-  @keyframes slide-u8ba9c166 {
+  @keyframes slide-ud0d93607 {
     from {
       left: -500px; }
     to {

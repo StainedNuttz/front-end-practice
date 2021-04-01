@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   text-align: center;
   background-color: #f9f9f9;
-  box-shadow: 3px 3px 5px #000;
+  box-shadow: 3px 3px 3px #555;
   padding: 1rem;
 }
 
@@ -43,7 +43,7 @@ header h1 {
 }
 
 #projects {
-  background: #333a;
+  background: #222;
   padding: 1rem;
 }
 
@@ -52,7 +52,7 @@ header h1 {
 }
 
 #projects .container {
-  padding: 1rem 0;
+  padding: 1rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
@@ -69,6 +69,7 @@ header h1 {
 
 #projects .card {
   justify-content: space-around;
+  transition: transform 0.25s;
 }
 
 #projects a {

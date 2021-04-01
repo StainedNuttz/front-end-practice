@@ -458,35 +458,41 @@ img {
   &-a {
     background: $light-color;
     color: set-text-color($light-color);
-    form > div {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
 
-      input {
-        border: 1px #bbb solid;
-        padding: 0.5rem;
+    form {
+      max-width: 80%;
+      margin: 0 auto;
 
-        &:focus {
-          outline: none;
-        }
-      }
+      > div {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
 
-      textarea {
-        grid-column: span 2;
-        height: 8rem;
-        resize: none;
-        padding: 0.5rem;
-        border: 1px #888 solid;
+        input {
+          border: 1px #bbb solid;
+          padding: 0.5rem;
 
-        &:focus {
-          outline: none;
+          &:focus {
+            outline: none;
+          }
         }
 
-        font: {
-          family: sans-serif;
-          size: 1rem;
+        textarea {
+          grid-column: span 2;
+          height: 8rem;
+          resize: none;
+          padding: 0.5rem;
+          border: 1px #888 solid;
+
+          &:focus {
+            outline: none;
+          }
+
+          font: {
+            family: sans-serif;
+            size: 1rem;
+          }
         }
       }
     }
