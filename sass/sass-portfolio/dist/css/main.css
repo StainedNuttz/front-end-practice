@@ -1,4 +1,3 @@
-@use "sass:string";
 @keyframes fadein {
   from {
     opacity: 0; }

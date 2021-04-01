@@ -1,5 +1,3 @@
-@use "sass:string";
-
 @function set-text-color($bg) {
   @if lightness($bg) < 0.5 {
     @return #fff;
