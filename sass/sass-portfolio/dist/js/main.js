@@ -1,3 +1,9 @@
+let a = document.querySelectorAll('.gallery .item .text-container p');
+
+a.forEach(function(item) {
+  textFit(item, {minFontSize:20, maxFontSize:25});
+});
+
 $("a[class^='btn-']").on('click', function (event) {
   if (this.hash !== '') {
     event.preventDefault();
