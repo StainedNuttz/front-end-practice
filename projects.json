@@ -9,19 +9,23 @@
     },
 
     {
+      "name": "Ivar Portfolio",
+      "image": "test2.png",
+      "text": "A portfolio site styled entirely using Sass",
+      "languages": [
+        "html",
+        "css",
+        "sass"
+      ],
+      "link": "sass-portfolio/dist"
+    },
+
+    {
       "name" : "Presentation",
       "image" : "test2.png",
       "text" : "A beautiful, kahoot-looking presentation navigator with slides being created from JSON. Includes a hamburger menu.",
       "languages" : ["html", "css", "js"],
       "link": "presentation"
-    },
-
-    {
-      "name" : "Ivar Portfolio",
-      "image" : "test2.png",
-      "text" : "A portfolio site styled entirely using Sass",
-      "languages" : ["html", "css", "sass"],
-      "link": "sass/sass-portfolio/dist"
     },
 
     {
