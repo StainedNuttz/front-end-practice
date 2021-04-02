@@ -1,0 +1,153 @@
+@function set-text-color($bg) {
+  @if lightness($bg) < 0.5 {
+    @return #fff;
+  } @else {
+    @return #000;
+  }
+}
+
+// Global keyframes
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes progress-bar-load {
+  from {
+    width: 0;
+  }
+}
+
+@mixin animate($duration, $delay) { 
+  animation: {
+    duration: $duration;
+    delay: $delay;
+    timing-function: linear;
+  }
+}
+
+@mixin fadein($duration, $delay: 0) {
+  @include animate($duration, $delay);
+  opacity: 0;
+  animation-name: 'fadein';
+}
+@mixin fadeout($duration, $delay: 0) {
+  @include animate($duration, $delay);
+  animation-name: 'fadeout';
+}
+
+@mixin animate-progressBar($duration, $delay: 0) {
+  @include animate($duration, $delay);
+  animation: {
+    name: 'progress-bar-load';
+    timing-function: ease;
+  }
+}
+
+@mixin animate-slide($offset, $duration, $delay) {
+  @include animate($duration, $delay);
+  opacity: 0;
+  $anim-name: slide-#{ unique-id() };
+  $anim-name: $anim-name !global;
+
+  animation: {
+    name: $anim-name;
+    fill-mode: forwards;
+    timing-function: ease;
+  }
+
+  @keyframes #{$anim-name} {
+    from {
+      top: -$offset;
+    }
+    to {
+      opacity: 1;
+      top: 0;
+    }
+  }
+}
+@mixin animate-slideX($offset, $duration, $delay: 0) {
+  @include animate-slide($offset, $duration, $delay);
+  
+  @keyframes #{$anim-name} {
+    from {
+      left: $offset;
+    }
+    to {
+      opacity: 1;
+      left: 0;
+    }
+  }
+}
+@mixin animate-slideY($offset, $duration, $delay: 0) {
+  @include animate-slide($offset, $duration, $delay);
+}
+
+// Buttons
+%btn-shared {
+  border: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+.btn {
+  &-light {
+    @extend %btn-shared;
+    background: $light-color;
+    color: set-text-color($light-color);
+  }
+  &-dark {
+    @extend %btn-shared;
+    background: $dark-color;
+    color: set-text-color($dark-color);
+  }
+  &-primary {
+    @extend %btn-shared;
+    background: $main-color;
+    color: set-text-color($main-color);
+  }
+}
+
+button[class^='btn-']:hover,
+input[class^='btn-']:hover,
+a[class^='btn-']:hover {
+  // the !important flag will override the property set by 'animation-fill-mode'
+  opacity: 0.7 !important;
+}
+
+// General
+.text-center {
+  text-align: center;
+}
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+
+// Section utilities
+.section-title {
+  font: {
+    size: 3rem;
+    weight: 400;
+  }
+  display: inline-block;
+  border-bottom: 1px $main-color solid;
+}
