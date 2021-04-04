@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  height: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+}
+
+input[type="text"] {
+  appearance: none;
+  padding: 0.4rem;
+  border: 1px #666 solid;
+  border-radius: 3px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.btn {
+  border: none;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+              0 1px 1px -2px rgba(0,0,0,0.14),
+              0 2px 2px 1px rgba(0,0,0,0.14);
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  transition: transform 0.1s ease;
+}
+
+.btn i {
+  padding-left: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.card {
+  padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+              0 3px 1px -2px rgba(0,0,0,0.12),
+              0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  color: #777;
+  font-size: 0.9rem;
+  padding-left: 0.1rem;
+}
+
+#filter-container {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.collection ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.collection-item {
+  border: 1px #aaaa solid;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 1px #bbb, 0px 0px 1px #bbb;
+}
+
+.collection-item a {
+  display: flex;
+  color: red;
+}
+
+.collection-item a:hover {
+  animation: shake 0.15s infinite alternate;
+}
+
+@keyframes shake {
+  from {
+    transform: scale(1.3) rotate(-5deg);
+  }  
+  to {
+    transform: scale(1.3) rotate(5deg);
+  }
+}
+
+#btn-add {
+  background-color: lightgreen;
+  color: #000;
+}
+
+#btn-add:hover {
+  background-color:rgb(101, 206, 101);
+  opacity: 1;
+}
+
+#btn-clear {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  margin-top: 1rem;
+}
