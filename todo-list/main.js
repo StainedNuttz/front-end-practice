@@ -22,24 +22,25 @@ function createItem(text) {
 }
 
 // init items from local storage
-if (items !== null) {
-  JSON.parse(items).forEach(function(item) {
-    if (collection.firstElementChild !== null) {
-      collection.insertBefore(createItem(item), collection.firstElementChild);
-    } else {
-      collection.appendChild(createItem(item));
-    }
-  });
-}
+document.addEventListener('DOMContentLoaded', function() {
+  if (items !== null) {
+    JSON.parse(items).forEach(function (item) {
+      if (collection.firstElementChild !== null) {
+        collection.insertBefore(createItem(item), collection.firstElementChild);
+      } else {
+        collection.appendChild(createItem(item));
+      }
+    });
+  }
+});
 
 collection.addEventListener('click', function(e) {
   if (e.target.classList.contains('close')) {
     const li = e.target.parentElement.parentElement;
     const items = JSON.parse(localStorage.getItem('items'));
-
     const index = items.indexOf(li.querySelector('span').innerText);
 
-    items.splice(index);
+    items.splice(index, 1);
     localStorage.setItem('items', JSON.stringify(items));
 
     li.remove();
@@ -69,15 +70,21 @@ taskForm.addEventListener('submit', function(e) {
   e.preventDefault();
 });
 
-clearBtn.addEventListener('click', function(e) {
+clearBtn.addEventListener('click', function() {
   Array.from(collection.children).forEach(function(item) {
     item.remove();
   });
   localStorage.removeItem('items');
 });
 
-function applyFilter() {
+filterInput.addEventListener('keyup', function() {
+  const filter = filterInput.value;
 
-}
-
-filterInput.addEventListener('keyup', applyFilter);
+  Array.from(collection.children).forEach(function(li) {
+    if (li.querySelector('span').innerText.toLowerCase().includes(filter)) {
+      li.style.display = 'flex';
+    } else {
+      li.style.display = 'none';
+    }
+  }); 
+});
