@@ -11,7 +11,7 @@
     "postcss-import": "^14.0.1"
   },
   "scripts": {
-    "dev": "npx tailwindcss build tailwind.css -o tailwind-build.css",
-    "prod": "NODE_ENV=production postcss build tailwind.css -o tailwind-build.css"
+    "dev": "npx tailwindcss build tailwind.css -o tailwind-dev.css",
+    "prod": "NODE_ENV=production npx tailwindcss build tailwind.css -o tailwind-build.css"
   }
 }
