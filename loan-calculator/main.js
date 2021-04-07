@@ -78,7 +78,14 @@ function calculateResults() {
     `<span class="text-lg absolute" style="left: -10px">$</span>${mainPayValue}`;
 
   totalInterest.innerHTML = currency.format(formula * 300 - pv);
-  totalPay.innerHTML = formula * 300;
+  totalPay.innerHTML = currency.format(formula * 300);
+
+  const inputtedDate = new Date(startDate.value);
+  inputtedDate.setFullYear(inputtedDate.getFullYear() + parseInt(loanTerm.value));
+
+  const arrayDate = inputtedDate.toDateString().split(' ');
+  arrayDate.shift();
+  lastPayDate.innerHTML = arrayDate.join(' ');
 }
 
 function validateInputs(e) {
