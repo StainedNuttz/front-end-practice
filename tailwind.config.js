@@ -1,7 +1,10 @@
 module.exports = {
-  purge: [,
-    '**/*.html'
-  ],
+  purge: {
+    content: ['**/*.html'],
+    options: {
+      safelist: ['text-red-600', 'border-red-600'],
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
