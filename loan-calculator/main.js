@@ -61,24 +61,57 @@ function calculateResults() {
   hideLoading();
   results.classList.remove('hidden');
   results.classList.add('grid')
+  
+  // NUMBER OF PAYMENTS PER YEAR
+  let scheduleToPay;
+  let perTimeName;
+
+  // get the schedule before the calculation as we need the
+  // correct one for the main calculation
+  switch (schedule.value) {
+    case 'daily':
+      scheduleToPay = 365;
+      perTimeName = 'day';
+      break;
+    case 'weekly':
+      scheduleToPay = 52;
+      perTimeName = 'week';
+      break;
+    case 'biweekly':
+      scheduleToPay = 26;
+      perTimeName = 'two weeks';
+      break;
+    case 'monthly':
+      scheduleToPay = 12;
+      perTimeName = 'month';
+      break;
+    case 'quarterly':
+      scheduleToPay = 4;
+      perTimeName = 'quarter (1/4 year)'
+      break;
+    case 'annually':
+      scheduleToPay = 1;
+      perTimeName = 'year';
+      break;
+  }
 
   // pv = loan amount
   // i = interest rate per month in decimal form
   // n = term of loan in months
 
   const pv = AutoNumeric.getNumber(loanAmount);
-  const i = (AutoNumeric.getNumber(interest) / 12) / 100;
-  const n = (loanTerm.value * 12);
+  const i = (AutoNumeric.getNumber(interest) / scheduleToPay) / 100;
+  const n = (loanTerm.value * scheduleToPay);
 
   const formula = (pv * i) * ((Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1));
 
 
   const mainPayValue = currency.format(formula.toFixed(2)).toString().split('$')[1];
-  mainPay.innerHTML =
-    `<span class="text-lg absolute" style="left: -10px">$</span>${mainPayValue}`;
+  mainPay.innerHTML = `<span class="text-lg absolute" style="left: -10px">$</span>${mainPayValue}`;
+  perTime.innerHTML = `per ${perTimeName}`;
 
-  totalInterest.innerHTML = currency.format(formula * 300 - pv);
-  totalPay.innerHTML = currency.format(formula * 300);
+  totalInterest.innerHTML = currency.format(formula * loanTerm.value * scheduleToPay - pv);
+  totalPay.innerHTML = currency.format(formula * loanTerm.value * scheduleToPay);
 
   const inputtedDate = new Date(startDate.value);
   inputtedDate.setFullYear(inputtedDate.getFullYear() + parseInt(loanTerm.value));
@@ -145,8 +178,9 @@ function validateInputs(e) {
       error.classList.add('border-red-600');
     });
   } else {
-    showLoading();
-    setTimeout(calculateResults, 3000);
+    calculateResults();
+    // showLoading();
+    // setTimeout(calculateResults, 3000);
   }
 }
 

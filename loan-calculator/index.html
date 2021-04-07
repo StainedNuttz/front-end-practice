@@ -12,7 +12,7 @@
 <body class="bg-gray-500">
   <div class="sm:container mx-auto px-2">
     <div id="inputs" class="bg-white max-w-screen-sm mx-auto mt-2 font-mono">
-      <h1 class="text-5xl px-2 pt-3 font-mono tracking-wider text-blue-600 font-bold text-center">LOAN CALCULATOR</h1>
+      <h1 class="text-3xl px-2 pt-3 font-mono tracking-wider text-blue-600 font-bold text-center">LOAN CALCULATOR</h1>
       <form class="p-2 tracking-tight">
         <div class="form-group grid max-w-lg mx-auto grid-cols-4 gap-2 gap-y-0">
           <div class="col-span-4 xs:col-span-3">
@@ -41,9 +41,12 @@
             <label for="schedule" class="text-gray-500 text-xs font-light">Pay schedule</label>
             <select class="p-1 w-full focus:ring-0" name="schedule" id="schedule" placeholder="Monthly">
               <option selected hidden>Select payment schedule</option>
-              <option value="monthly">Monthly</option>
+              <option value="daily">Daily</option>          
               <option value="weekly">Weekly</option>
-              <option value="anually">Annually</option>
+              <option value="biweekly">Bi-weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="annually">Annually</option>
             </select>
           </div>
           <div class="col-span-4">
@@ -64,33 +67,31 @@
         <span class="self-center pl-3">Calculating...</span>
       </div>
     </div>
-    <div id ="results" class="max-w-screen-sm mx-auto grid grid-cols-1 xs:gap-2 xs:grid-cols-2">
+    <div id ="results" class="max-w-sm xs:max-w-screen-sm mx-auto grid grid-cols-1 xs:gap-2 xs:grid-cols-2">
       <div id="payment" class="bg-white w-full max-w-screen-sm mx-auto mt-2 flex font-mono">
         <div class="text-center self-center w-full">
-          <span class="block text-sm py-4 pt-3">You will pay</span>
-            <h2 id="main-pay" class="inline-block text-6xl mx-auto relative tracking-tighter">423.65</h2>
-          <span id="per-time" class="block text-sm py-4 pt-3">per month</span>
+          <span class="block text-xl pb-5">You will pay</span>
+          <h2 id="main-pay" class="inline-block font-bold text-5xl mx-auto relative tracking-tighter"></h2>
+          <span id="per-time" class="block text-xl pt-5"></span>
         </div>
       </div>
-      <div id="costs" class="bg-white w-full max-w-screen-sm mx-auto mt-1 xs:mt-2 font-mono">
-        <div class="flex p-3 flex-col h-full justify-between">
-          <div class="grid grid-cols-2">
-            <div class="justify-self-start">
-              <h3 class="self-center font-bold">Total interest</h3>
-            </div>
-            <div id="total-interest" class="self-center pl-3"></div>
+      <div class="mt-2 flex flex-col justify-between">
+        <div class="bg-white xs:mb-1 p-1 w-full max-w-screen-sm mx-auto mt-1 xs:mt-0 font-mono">
+            <div class="text-center">
+              <h3 class="text-sm">Total interest</h3>
+              <div id="total-interest" class="mt-1 text-lg font-semibold"></div>
           </div>
-          <div class="grid grid-cols-2">
-            <div class="justify-self-start">
-              <h3 class="self-center font-bold">Total to pay</h3>
-            </div>
-            <div id="total-pay" class="self-center pl-3"></div>
+        </div>
+        <div class="bg-white xs:mb-1 p-1 w-full max-w-screen-sm mx-auto mt-1 xs:mt-0 font-mono">
+            <div class="text-center">
+              <h3 class="text-sm">Total to pay</h3>
+              <div id="total-pay" class="mt-1 text-lg font-semibold"></div>
           </div>
-          <div class="grid grid-cols-2">
-            <div class="justify-self-start">
-              <h3 class="self-center font-bold">Last pay date</h3>
-            </div>
-            <div id="last-pay-date" class="self-center pl-3"></div>
+        </div>
+        <div class="bg-white p-1 w-full max-w-screen-sm mx-auto mt-1 xs:mt-0 font-mono">
+          <div class="text-center">
+            <h3 class="text-sm">Last pay date</h3>
+            <div id="last-pay-date" class="mt-1 text-lg font-semibold"></div>
           </div>
         </div>
       </div>
