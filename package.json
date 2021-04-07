@@ -9,5 +9,8 @@
     "@tailwindcss/forms": "^0.3.2",
     "autonumeric": "^4.6.0",
     "postcss-import": "^14.0.1"
+  },
+  "scripts": {
+    "style": "postcss tailwind.css -o tailwind-build.css"
   }
 }
