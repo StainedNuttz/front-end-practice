@@ -1,3 +1,5 @@
+var AutoNumeric = require('autonumeric');
+
 const form = document.querySelector('#inputs form');
 const formSubmit = document.querySelector('#inputs form button[type="submit"]');
 
