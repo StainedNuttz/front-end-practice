@@ -34,10 +34,12 @@ startDate.setAttribute('value', today);
 formSubmit.addEventListener('click', validateInputs);
 
 function showLoading() {
-  loading.classList.remove('hidden');
-  loading.classList.add('flex');
+  loading.classList.replace('hidden', 'flex');
+
   formSubmit.setAttribute('disabled', 'disabled');
   formSubmit.classList.add('cursor-not-allowed');
+
+  results.classList.replace('grid', 'hidden')
 
   inputsToCheck.forEach(function(input) {
     input.setAttribute('disabled', 'disabled');
@@ -46,10 +48,12 @@ function showLoading() {
 }
 
 function hideLoading() {
-  loading.classList.remove('flex');
-  loading.classList.add('hidden');
+  loading.classList.replace('flex', 'hidden');
+
   formSubmit.removeAttribute('disabled')
   formSubmit.classList.remove('cursor-not-allowed');
+
+  results.classList.replace('hidden', 'grid')
 
   inputsToCheck.forEach(function (input) {
     input.removeAttribute('disabled', 'disabled');
@@ -59,8 +63,6 @@ function hideLoading() {
 
 function calculateResults() {
   hideLoading();
-  results.classList.remove('hidden');
-  results.classList.add('grid')
   
   // NUMBER OF PAYMENTS PER YEAR
   let scheduleToPay;
@@ -178,9 +180,8 @@ function validateInputs(e) {
       error.classList.add('border-red-600');
     });
   } else {
-    calculateResults();
-    // showLoading();
-    // setTimeout(calculateResults, 3000);
+    showLoading();
+    setTimeout(calculateResults, 2000);
   }
 }
 
