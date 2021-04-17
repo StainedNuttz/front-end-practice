@@ -10,6 +10,7 @@ let randomNumber, guessesLeft, gameRunning;
 const statCorrectGuesses = document.querySelector('#stat-correct-guesses');
 const statAttempts = document.querySelector('#stat-attempts');
 const statGamesPlayed = document.querySelector('#stat-games-played');
+const gameNumber = document.querySelector('#game-number');
 
 const borderError = 'border-red-600';
 const borderSuccess = 'border-green-600';
@@ -43,6 +44,7 @@ function startGame() {
   gameState.className = 'text-xl mb-2 mt-2';
   gameState.textContent = `You have ${guessesLeft} guesses 
   left`;
+  gameNumber.textContent = `Game #${parseInt(localStorage.getItem('totalGamesPlayed')) + 1}`;
 
   guess.classList.remove(borderError, borderSuccess);
   inputInfo.className = '';
