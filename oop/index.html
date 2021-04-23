@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../tailwind-build.css">
+  <title>OOP Products</title>
+</head>
+<body>
+  <div class="container p-3 mx-auto">
+    <h1 class="text-center text-4xl tracking-wide my-3">Products</h1>
+    <form id="new-product" class="max-w-xl mx-auto grid gap-x-3 grid-cols-2">
+      <div class="col-span-2">
+        <label class="font-bold inline-block mb-1 text-sm" for="product-name">Name</label>
+        <input class="block py-1 w-full" type="text" name="product-name" id="product-name">
+      </div>
+      <div class="">
+        <label class="font-bold inline-block mb-1 text-sm" for="product-price">Price</label>
+        <input class="block py-1 w-full" type="text" name="product-price" id="product-price">
+      </div>
+      <div class="">
+        <label class="font-bold inline-block mb-1 text-sm" for="product-code">Product Code</label>
+        <input class="block py-1 w-full" type="text" name="product-code" id="product-code">
+      </div>
+      <div class="">
+        <label class="font-bold inline-block mb-1 text-sm" for="product-calories">Calories</label>
+        <input class="block py-1 w-full" type="text" name="product-calories" id="product-calories">
+      </div>
+      <div class="">
+        <label class="font-bold inline-block mb-1 text-sm" for="product-quantity">Quantity</label>
+        <input class="block py-1 w-full" type="text" name="product-quantity" id="product-quantity">
+      </div>
+      <input id="add-product" class="p-2 border border-black cursor-pointer hover:bg-gray-200 col-span-2 mt-7" type="submit" value="Add Product">
+    </form>
+
+    <hr class="border-gray-400 mt-10 mb-5">
+
+    <table class="w-full max-w-4xl mx-auto table-auto">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border border-black px-2">Name</th>
+          <th class="border border-black px-2">Price</th>
+          <th class="border border-black px-2">Product Code</th>
+          <th class="border border-black px-2">Calories</th>
+          <th class="border border-black px-2">Quantity</th>
+          <th class="bg-white"></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr class="relative">
+          <td class="border border-black px-2 py-2">Cheese Sticks</td>
+          <td class="border border-black px-2">£1.99</td>
+          <td class="border border-black px-2">16492</td>
+          <td class="border border-black px-2">345</td>
+          <td class="border border-black px-2">9823</td>
+          <td class="pl-3 text-red-500"><a class="delete-button" href="#">X</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="es6.js"></script>
+</html>
