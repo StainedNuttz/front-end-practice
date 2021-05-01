@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <title>WeatherJS</title>
+</head>
+<style>
+  * {
+    font-family: 'Lato';
+  }
+  #location {
+    font-size: 2.6rem;
+  }
+  #cloud {
+    background: url('http://openweathermap.org/img/wn/10d@4x.png') center;
+  }
+</style>
+<body>
+  <div class="container mx-auto px-2 text-center">
+    <h1 id="location" class="mt-10">North Tawton</h1>
+    <div class="mx-auto mt-2 mb-4 w-32 h-32" id="cloud"></div>
+    <h2 id="temp" class="text-6xl font-light">-4&deg;</h2>
+    <div class="flex justify-center gap-x-10 mt-4 text-lg">
+      <div class="flex flex-col">
+        <h3>Min</h3>
+        <span id="min-temp" class="">-16&deg;</span>
+      </div>
+      <div>
+        <h3>Max</h3>
+       <span id="max-temp" class="">6&deg;</span>
+      </div>
+    </div>
+
+    <ul id="days">
+      <li class="day flex justify-center mt-8">
+        
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

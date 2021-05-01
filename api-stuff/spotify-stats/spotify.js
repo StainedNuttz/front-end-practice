@@ -1,7 +1,7 @@
 class Spotify {
   constructor() {
     this.client_id = '5e965c98d55a4567b6710fb3fb72ab70';
-    this.redirect_uri = 'http://localhost:5500/api-stuff/spotify-stats/';
+    this.redirect_uri = 'https://www.stianhazel.xyz/api-stuff/spotify-stats/';
     this.apiURL = 'https://api.spotify.com/v1/';
     this.accessToken = sessionStorage.getItem('access_token');
     this.scope = 'playlist-read-private user-read-private user-top-read user-read-recently-played user-modify-playback-state user-read-currently-playing user-read-playback-state';
