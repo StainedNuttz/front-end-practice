@@ -6,5 +6,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const spotify = new Spotify();
   sessionStorage.setItem('access_token', token);
-  setTimeout(() => document.location = spotify.redirect_uri + '#success');
+  setTimeout(() => document.location = spotify.redirect_uri, 2000);
 });

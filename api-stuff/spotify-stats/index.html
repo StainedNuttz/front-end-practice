@@ -7,11 +7,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css" />
   <title>Spotify Stats</title>
 </head>
-<body>
+<body class="bg-gray-50">
   <div class="container mx-auto text-center">
-    <h1 class="text-6xl my-5">Spotify Stats</h1>
-    <button id="connect" class="bg-green-500 hover:bg-green-400 text-sm tracking-widest rounded-full text-white font-bold my-3 py-3 px-7">LOGIN WITH SPOTIFY</button>
-    <div class="" id="content"></div>
+    <div id="user" class="my-8">
+      <h1 class="text-5xl my-4">Spotify Stats</h1>
+      <button id="connect"
+        class="bg-green-500 hover:bg-green-400 text-sm tracking-widest rounded-full text-white font-bold my-3 py-3 px-7">LOGIN
+        WITH SPOTIFY</button>
+    </div>
+    <div class="hidden" id="content">
+
+      <div id="current-track" class="grid max-w-lg grid-cols-3 gap-5 mx-auto mt-16 mb-16">
+        <button id="toggle-player" class="bg-green-500 hover:bg-green-400 text-sm tracking-widest rounded-full text-white font-bold py-3 px-7 col-span-1">PAUSE</button>
+        <div class="ml-1 flex flex-col gap-y-5 col-span-3"></div>
+      </div>
+
+      <div class="inline-flex flex-col mb-16">
+        <h2 class="text-6xl font-semibold mb-6">Recently Played</h2>
+        <div id="recently-played" class="ml-2 max-w-sm flex flex-col gap-y-2"></div>
+      </div>
+
+      <h2 class="text-6xl font-semibold mb-12">My Top Artists</h2>
+      <div id="top-artists" class="mb-16 inline-grid grid-cols-5 gap-5"></div>
+
+      <h2 class="text-6xl font-semibold mb-10">My Playlists</h2>
+      <div id="playlists" class="mb-16 inline-grid grid-cols-5 gap-6"></div>
+      
+    </div>
   </div>
   <script src="spotify.js"></script>
   <script src="ui.js"></script>
