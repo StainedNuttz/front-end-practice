@@ -9,6 +9,13 @@ class UI {
     this.hr = document.querySelector('hr');
     this.days = document.querySelector('#days');
   }
+  apiPrompt() {
+    document.querySelector('#api-message').classList.remove('hidden');
+  }
+  apiPromptSuccess() {
+    const popup = document.querySelector('#api-message');
+    popup.remove();
+  }
   displayToday(data) {
     this.todayTemp.textContent = `${Math.round(data.temp)}°`;
     this.todayIcon.style.backgroundImage = `url('http://openweathermap.org/img/wn/${data.icon}@4x.png')`;

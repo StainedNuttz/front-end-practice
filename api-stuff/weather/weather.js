@@ -1,6 +1,6 @@
 class Weather {
   constructor() {
-    this.apiKey = '4506e9996bf1ad8775c053e5e3fa66ba';
+    this.apiKey;
     this.lat = 50.798650;
     this.lon = -3.896830;
     this.weatherCodes = {
@@ -13,10 +13,18 @@ class Weather {
       "Rain": "from-gray-600 via-blue-400 to-blue-400 text-white"
     }
   }
+  setApiKeyFromStorage() {
+    const storage = new WeatherStorage();
+    this.apiKey = storage.getApiKey();
+  }
+  async tryApiKey(key) {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=berlin&appid=${key}`);
+    const json = await res.json();
+    return json.cod;
+  }
   async getWeather() {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric&exclude=minutely,hourly,alerts`);
     const json = await res.json();
-
     return json;
   }
 }

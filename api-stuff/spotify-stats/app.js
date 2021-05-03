@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
             artist: d.item.artists[0].name,
             image: d.item.album.images[1].url
           });
-          if (!d.is_playing) { document.querySelector('#pause-overlay').classList.add('flex'); }
+          if (!d.is_playing) {
+            pauseOverlay.classList.remove('hidden');
+            pauseOverlay.classList.add('flex');
+           }
         } else {
           togglePlayer.textContent = 'START';
           ui.displayCurrentTrack(false);
