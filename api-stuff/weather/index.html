@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-full" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,37 +10,53 @@
   <title>WeatherJS</title>
 </head>
 <style>
+  @media (max-width: 640px) {
+    #location {
+      font-size: 2.6rem;
+    }
+  }
   * {
     font-family: 'Lato';
   }
-  #location {
-    font-size: 2.6rem;
+  #main-cloud {
+    background: url('http://openweathermap.org/img/wn/02d@4x.png') no-repeat;
+    width: 200px;
+    height: 130px;
+    background-position: 0px -35px;
   }
-  #cloud {
-    background: url('http://openweathermap.org/img/wn/10d@4x.png') center;
+  .cloud {
+    background: url('http://openweathermap.org/img/wn/10d@2x.png') no-repeat;
+    width: 100px;
+    height: 60px;
+    background-position: 0px -17px;
+  }
+  @media (min-width: 640px) {
+    .cloud {
+      background: url('http://openweathermap.org/img/wn/02d@4x.png') no-repeat;
+      width: 200px;
+      height: 130px;
+      background-position: 0px -35px;
+    }
   }
 </style>
-<body>
-  <div class="container mx-auto px-2 text-center">
-    <h1 id="location" class="mt-10">North Tawton</h1>
-    <div class="mx-auto mt-2 mb-4 w-32 h-32" id="cloud"></div>
-    <h2 id="temp" class="text-6xl font-light">-4&deg;</h2>
-    <div class="flex justify-center gap-x-10 mt-4 text-lg">
-      <div class="flex flex-col">
-        <h3>Min</h3>
-        <span id="min-temp" class="">-16&deg;</span>
-      </div>
-      <div>
-        <h3>Max</h3>
-       <span id="max-temp" class="">6&deg;</span>
-      </div>
+<body class="">
+  <div class="container mx-auto px-2 pb-8 text-center">
+    
+    <div id="today" class="">
+      <h1 id="location" class="sm:mt-5 sm:text-8xl font-normal sm:font-light">North Tawton</h1>
+      <div id="main-cloud" class="big-cloud mx-auto sm:mt-5 sm:mb-1"></div>
+      <h2 id="temp" class="text-7xl font-light mb-5">-4&deg;</h2>
+      <h2 id="desc" class="text-xl sm:text-2xl mt-1 mb-2">scattered clouds</h2>
     </div>
 
-    <ul id="days">
-      <li class="day flex justify-center mt-8">
-        
-      </li>
-    </ul>
+    <hr class="mt-5 sm:mt-10 sm:mb-5">
+
+    <ul id="days" class="grid grid-cols-3 lg:grid-cols-6"></ul>
+    
   </div>
+  <script src="storage.js"></script>
+  <script src="weather.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

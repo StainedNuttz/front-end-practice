@@ -1,0 +1,9 @@
+800: from-blue-500 to-blue-300
+801: from-white via-blue-400 to-blue-400
+802: from-white via-blue-400 to-blue-500
+803/804: from-white via-blue-500 to-blue-500
+520/521/522/531: from-gray-200 to-blue-400
+500-504/511: from-gray-400 via-gray-300 to-blue-400
+2xx: from-gray-900 via-gray-700 to-blue-900
+6xx: from-gray-50 via-white to-blue-300
+7xx: from-gray-200 to-white
