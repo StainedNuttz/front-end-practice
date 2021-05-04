@@ -38,7 +38,13 @@ class UI {
       const li = `
         <li class="day flex flex-col justify-center mt-8">
           <span class="font-bold sm:font-normal sm:mb-1 sm:text-3xl">${newDay}</span>
-          <div class="cloud mx-auto h-16 w-16 sm:h-32 sm:w-32 mb-1" style="background-image: url('http://openweathermap.org/img/wn/${data[i].weather[0].icon}@4x.png')"></div>
+          <div class="cloud mx-auto h-16 w-16 sm:h-32 sm:w-32 mb-1"
+          style="
+            background-image: url('http://openweathermap.org/img/wn/${data[i].weather[0].icon}@4x.png')
+            @media (min-width: 640px) {
+              background-image: url('http://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png')
+            }
+          "></div>
           <div class="flex justify-center sm:text-2xl">
             <span class="mr-3">${Math.round(data[i].temp.min)}°</span>
             <span class="ml-4">${Math.round(data[i].temp.max)}°</span>
