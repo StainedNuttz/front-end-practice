@@ -2,9 +2,6 @@ const weather = new Weather();
 const ui = new UI();
 const storage = new WeatherStorage();
 
-const submitKey = document.querySelector('#submit-key');
-const key = document.querySelector('#api-key');
-
 document.addEventListener('DOMContentLoaded', initApp);
 
 function initApp() {
@@ -30,15 +27,15 @@ function initApp() {
   }
 }
 
-submitKey.addEventListener('click', () => {
-  submitKey.setAttribute('disabled', 'disabled');
-  submitKey.classList.remove('from-blue-600', 'to-blue-500');
-  submitKey.classList.add('from-blue-400', 'to-blue-400', 'cursor-not-allowed');
-  submitKey.querySelector('svg').classList.remove('hidden');
-  
-  weather.tryApiKey(key.value)
+ui.submitApiKey.addEventListener('click', () => {
+  // disable button and show loading circle
+  ui.submitApiKey.setAttribute('disabled', 'disabled');
+  ui.submitApiKey.querySelector('svg').classList.remove('hidden');
+  ui.applyStateChange('#'+ui.submitApiKey.id, 'processing');
+
+  weather.tryApiKey(ui.inputApiKey.value)
     .then(d => {
-      key.classList.remove('ring-1', 'border-red-500');
+      ui.inputApiKey.classList.remove('ring-1', 'border-red-500');
 
       setTimeout(() => {
         const message = document.createElement('p');
@@ -48,19 +45,19 @@ submitKey.addEventListener('click', () => {
         if (previous) { previous.remove(); }
         
         if (d === 401) {
-          key.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+          ui.inputApiKey.classList.add('border-red-500', 'ring-1', 'ring-red-500');
           message.textContent = 'Invalid API key, please try again';
           message.className = 'text-red-500 sm:col-span-3'
-          submitKey.classList.add('from-blue-600', 'to-blue-500');
-          submitKey.removeAttribute('disabled');
+          ui.submitApiKey.classList.add('from-blue-600', 'to-blue-500');
+          ui.submitApiKey.removeAttribute('disabled');
         } else {
-          key.classList.add('border-green-500', 'ring-1', 'ring-green-500');
-          submitKey.classList.add('from-green-600', 'to-green-500');
-          submitKey.classList.add('hover:from-green-600', 'hover:to-green-500');
+          ui.inputApiKey.classList.add('border-green-500', 'ring-1', 'ring-green-500');
+          ui.submitApiKey.classList.add('from-green-600', 'to-green-500');
+          ui.submitApiKey.classList.add('hover:from-green-600', 'hover:to-green-500');
           message.textContent = 'Success';
-          message.className = 'text-green-500 sm:col-span-3'
+          message.className = 'text-green-500 sm:col-span-3';
 
-          storage.saveApiKey(key.value);
+          storage.saveApiKey(ui.inputApiKey.value);
           weather.setApiKeyFromStorage();
           ui.apiPromptSuccess();
           setTimeout(() => {
@@ -69,9 +66,9 @@ submitKey.addEventListener('click', () => {
           }, 2000);
         }
 
-        key.parentElement.appendChild(message);
-        submitKey.classList.remove('from-blue-400', 'to-blue-400', 'cursor-not-allowed');
-        submitKey.querySelector('svg').classList.add('hidden');
+        ui.applyStateChange('#'+ui.submitApiKey.id, 'idle');
+        ui.inputApiKey.parentElement.appendChild(message);
+        ui.submitApiKey.querySelector('svg').classList.add('hidden');
       }, 2000);
     });
 });

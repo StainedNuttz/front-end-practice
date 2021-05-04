@@ -9,15 +9,33 @@ class UI {
     this.hr = document.querySelector('hr');
     this.days = document.querySelector('#days');
 
-    this.submitKey = document.querySelector('#submit-key');
-    this.key = document.querySelector('#api-key');
+    this.submitApiKey = document.querySelector('#submit-key');
+    this.inputApiKey = document.querySelector('#api-key');
     this.popup = document.querySelector('#api-message');
+
+    this.states = {
+      '#submit-key': {
+        'idle': 'from-blue-600 to-blue-500 hover:from-blue-400 hover:to-blue-400',
+        'processing': 'from-blue-400 to-blue-400 cursor-not-allowed hover:from-blue-400 hover:to-blue-400',
+      }
+    }
+    
+    // store original classlist
+    for (let s in this.states) {
+      this.states[s].base = document.querySelector(s).className;
+    }
+  }
+  applyStateChange(element, state) {
+    console.log(`${element} : ${state}`);
+    const e = document.querySelector(element);
+    e.className = this.states[element].base + ` ${this.states[element][state]}`;
   }
   apiPrompt() {
-    document.querySelector('#api-message').classList.remove('hidden');
+    this.popup.classList.remove('hidden');
+    this.applyStateChange('#'+this.submitApiKey.id, 'idle');
   }
   apiPromptSuccess() {
-    this.submitKey.textContent = '✓';
+    this.submitApiKey.textContent = '✓';
   }
   displayToday(data) {
     this.todayTemp.textContent = `${Math.round(data.temp)}°`;
