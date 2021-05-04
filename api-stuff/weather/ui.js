@@ -8,13 +8,16 @@ class UI {
 
     this.hr = document.querySelector('hr');
     this.days = document.querySelector('#days');
+
+    this.submitKey = document.querySelector('#submit-key');
+    this.key = document.querySelector('#api-key');
+    this.popup = document.querySelector('#api-message');
   }
   apiPrompt() {
     document.querySelector('#api-message').classList.remove('hidden');
   }
   apiPromptSuccess() {
-    const popup = document.querySelector('#api-message');
-    popup.remove();
+    this.submitKey.textContent = '✓';
   }
   displayToday(data) {
     this.todayTemp.textContent = `${Math.round(data.temp)}°`;
