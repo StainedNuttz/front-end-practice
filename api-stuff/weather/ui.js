@@ -16,13 +16,22 @@ class UI {
     this.states = {
       '#submit-key': {
         'idle': 'from-blue-600 to-blue-500 hover:from-blue-400 hover:to-blue-400',
-        'processing': 'from-blue-400 to-blue-400 cursor-not-allowed hover:from-blue-400 hover:to-blue-400',
+        'processing': 'from-blue-400 to-blue-400 hover:from-blue-400 hover:to-blue-400 cursor-not-allowed',
+        'success': 'from-green-600 to-green-500'
+      },
+      '#api-key': {
+        'idle': 'border-gray-700',
+        'error': 'border-red-500 ring-1 ring-red-500',
+        'success': 'border-green-500 ring-1 ring-green-500',
       }
     }
     
-    // store original classlist
+    // add base style for each element
+    // set to idle state by default
     for (let s in this.states) {
-      this.states[s].base = document.querySelector(s).className;
+      const e = document.querySelector(s);
+      this.states[s].base = e.className;
+      this.applyStateChange(s, 'idle');
     }
   }
   applyStateChange(element, state) {
@@ -32,7 +41,6 @@ class UI {
   }
   apiPrompt() {
     this.popup.classList.remove('hidden');
-    this.applyStateChange('#'+this.submitApiKey.id, 'idle');
   }
   apiPromptSuccess() {
     this.submitApiKey.textContent = '✓';
