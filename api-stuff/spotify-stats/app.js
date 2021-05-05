@@ -51,29 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-togglePlayer.addEventListener('click', () => {
-  const currentToggle = togglePlayer.textContent;
-  let newToggle;
-  newToggle = (currentToggle === 'RESUME' || 'START') ? 'PAUSE' : 'RESUME';
+//button disabled until i fix it (never)
 
-  spotify.apiCall(`me/player/${(currentToggle === ('RESUME' || 'START') ? 'play' : 'pause')}`, {}, {}, 'PUT')
-    .then(d => {
-      console.log(currentToggle);
-      if (d.hasOwnProperty('error') && d.error.reason === 'PREMIUM_REQUIRED') {
-        ui.displayError('You must be a premium user to use this player.', d.error.reason);
-      } else {
-        togglePlayer.textContent = newToggle;
-        spotify.apiCall('me/player/currently-playing')
-          .then(d => {
-            const pauseOverlay = document.querySelector('#pause-overlay');
-            if (!d.is_playing) {
-              pauseOverlay.classList.remove('hidden');
-              pauseOverlay.classList.add('flex');
-            }
-          });
-      }
-    })
-});
+// togglePlayer.addEventListener('click', () => {
+//   const currentToggle = togglePlayer.textContent;
+//   let newToggle;
+//   newToggle = (currentToggle === 'RESUME' || 'START') ? 'PAUSE' : 'RESUME';
+
+//   spotify.apiCall(`me/player/${(currentToggle === ('RESUME' || 'START') ? 'play' : 'pause')}`, {}, {}, 'PUT')
+//     .then(d => {
+//       console.log(currentToggle);
+//       if (d.hasOwnProperty('error') && d.error.reason === 'PREMIUM_REQUIRED') {
+//         ui.displayError('You must be a premium user to use this player.', d.error.reason);
+//       } else {
+//         togglePlayer.textContent = newToggle;
+//         spotify.apiCall('me/player/currently-playing')
+//           .then(d => {
+//             const pauseOverlay = document.querySelector('#pause-overlay');
+//             if (!d.is_playing) {
+//               pauseOverlay.classList.remove('hidden');
+//               pauseOverlay.classList.add('flex');
+//             }
+//           });
+//       }
+//     })
+// });
 
 connect.addEventListener('click', () => {
   spotify.login()
