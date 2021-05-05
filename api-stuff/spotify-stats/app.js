@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image: d.item.album.images[1].url
           });
           if (!d.is_playing) {
+            const pauseOverlay = document.querySelector('#pause-overlay');
             pauseOverlay.classList.remove('hidden');
             pauseOverlay.classList.add('flex');
            }
