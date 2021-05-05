@@ -49,7 +49,7 @@ ui.submitApiKey.addEventListener('click', () => {
           ui.applyStateChange('#'+ui.submitApiKey.id, 'idle');
           ui.submitApiKey.querySelector('svg').classList.add('hidden');
           ui.submitApiKey.removeAttribute('disabled');
-          ui.inputApiKey.removeAttribute('disabled', 'disabled');
+          ui.inputApiKey.removeAttribute('disabled');
         } else {
           message.textContent = 'Success';
           message.className = 'text-green-500 sm:col-span-4';
