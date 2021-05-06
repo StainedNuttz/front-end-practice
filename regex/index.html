@@ -34,11 +34,10 @@
       </div>
       <div class="form-group flex flex-col col-span-2 sm:col-span-4">
         <label class="text-left text-gray-600 text-sm mb-0.5">Reason you want to join</label>
-        <textarea rows="3" class="resize-none border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text"
-          id="reason"></textarea>
+        <textarea rows="3" maxlength="300" class="resize-none border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text" id="reason"></textarea>
         <label id="count" class="text-left text-gray-600 text-xs mt-1">0 / 300 characters</label>
       </div>
-      <button id="submit" class="col-span-2 bg-purple-400 p-1 rounded-sm text-white text-lg tracking-wide mt-2">Submit</button>
+      <button id="submit" class="col-span-2 sm:col-span-4 bg-purple-400 p-1 rounded-sm text-white text-lg tracking-wide mt-2">Submit</button>
     </form>
   </div>
   <script src="app.js"></script>
