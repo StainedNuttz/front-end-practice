@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css" />
+  <title>RegEx Form Validation</title>
+</head>
+<body>
+  <div class="container mx-auto text-center px-2">
+    <h1 class="text-4xl leading-normal tracking-wide mt-3">Form validation using regular expressions</h1>
+    <form class="grid grid-cols-2 sm:grid-cols-4 max-w-2xl mx-auto mt-5 gap-y-2 gap-x-4">
+      
+      <div class="form-group flex flex-col col-span-2 sm:col-span-2">
+        <label class="text-left text-gray-600 text-sm mb-0.5">Email address</label>
+        <input class="border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text" id="email">
+      </div>
+      <div class="form-group flex flex-col col-span-2 sm:col-span-2">
+        <label class="text-left text-gray-600 text-sm mb-0.5">Username</label>
+        <input class="border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text" id="username">
+      </div>
+      <div class="form-group flex flex-col col-span-2 sm:col-span-2">
+        <label class="text-left text-gray-600 text-sm mb-0.5">Card Number</label>
+        <input class="border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text" id="card">
+      </div>
+      <div class="form-group flex flex-col col-span-1 sm:col-span-1">
+        <label class="text-left text-gray-600 text-sm mb-0.5">CCV</label>
+        <input class="border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text" id="ccv">
+      </div>
+      <div class="form-group flex flex-col col-span-1 sm:col-span-1">
+        <label class="text-left text-gray-600 text-sm mb-0.5">Expiration Date</label>
+        <input class="border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text" id="exp">
+      </div>
+      <div class="form-group flex flex-col col-span-2 sm:col-span-4">
+        <label class="text-left text-gray-600 text-sm mb-0.5">Reason you want to join</label>
+        <textarea rows="3" class="resize-none border w-full border-gray-400 rounded-sm p-1 focus:outline-none focus:ring-1 focus:ring-gray-300" type="text"
+          id="reason"></textarea>
+        <label id="count" class="text-left text-gray-600 text-xs mt-1">0 / 300 characters</label>
+      </div>
+      <button id="submit" class="col-span-2 bg-purple-400 p-1 rounded-sm text-white text-lg tracking-wide mt-2">Submit</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
