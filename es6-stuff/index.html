@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <title>ES6 Stuff</title>
+  <style>
+    pre {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mx-auto px-2">
+    <h1 class="text-5xl font-bold tracking-wide leading-normal">ES6 Stuff</h1>
+    <h2 class="text-4xl leading-normal">Iterators & Generators</h2>
+    <p class="mt-2">
+      Here is an example of an iterator:
+<pre class="js my-3"><code>function iterator(arr) {
+  let index = 0;
+
+  return {
+    'next': function() {
+      return index < arr.length ? 
+      { value: arr[index++] } :
+      { value: 'END OF ARRAY' }
+    }
+  }
+}
+</code></pre>
+  This function returns an object with function <code>next()</code> that accesses the <code>index</code> variable of the original function. This function therefore acts like a pausing <b>for loop</b> as seen below.
+<pre class="js my-3">
+<code>const products = ['Juice', 'Noodles', 'Milk', 'Carrots'];
+const iteratedProducts = iterator(products);
+console.log(iteratedProducts.next().value);
+console.log(iteratedProducts.next().value);
+console.log(iteratedProducts.next().value);
+console.log(iteratedProducts.next().value);
+
+// 'Juice'
+// 'Noodles'
+// 'Milk'
+// 'Carrots'
+</code></pre>
+ES6 introduced an easier way to write these iterators through <b>generator functions</b>.
+<pre class="js my-3">
+<code>function* listProducts() {
+  yield 'Juice';
+  yield 'Noodles';
+  yield 'Milk';
+  yield 'Carrots';
+}
+
+const gen = listProducts();
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next().value);
+console.log(gen.next().value);
+
+// Object { value: "Juice", done: false }
+// Object { value: "Noodles", done: false }
+// 'Milk'
+// 'Carrots'
+</code></pre>
+Because of this, you can write some useful things like a unique ID generator
+<pre class="js my-3">
+<code>function* createID() {
+  let index = 0;
+  while (true) {
+    yield index++;
+  }
+}
+
+const newID = createID();
+console.log(newID.next().value);
+console.log(newID.next().value);
+console.log(newID.next().value);
+
+// 0
+// 1
+// 2
+</code></pre>
+  Here is a profile scroller implemented with a generator to display each profile one by one; profile data is stored in a separate JSON file.
+
+  <!-- Object { title: "Mr", first: "Bertram", last: "Jørgensen" }
+       male 35 https://randomuser.me/api/portraits/med/men/70.jpg bertram.jorgensen@example.com -->
+  </p>
+
+  <div id="scroller" class="mx-auto my-12 max-w-sm flex flex-col">
+    <div id="current" class="border border-gray-400 flex py-3 pl-2 justify-center">
+      <img class="rounded-full mr-3" src="https://randomuser.me/api/portraits/men/70.jpg" alt="">
+      <ul class="flex flex-col mt-1 ml-1">
+        <li class="text-indigo-600 text-xl font-bold">Bertram Jørgensen</li>
+        <li class="text-sm">Male, 35</li>
+        <li class="text-sm">bertram.jorgensen@example.com</li>
+        <li class="text-sm">07431591732</li>
+      </ul>
+    </div>
+    <button class="px-2 py-1 mt-1 text-white rounded-sm bg-indigo-600 hover:bg-indigo-500">Next Profile</button>
+  </div>
+  <p>
+    very cool isn't it
+  </p>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

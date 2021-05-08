@@ -70,10 +70,11 @@ reason.addEventListener('keyup', () => {
 
 document.querySelector('form').addEventListener('focusout', (e) => {
   if (e.target.tagName !== 'BUTTON') { validateInput(e.target); }
+  console.log(e.target + ' unfocused')
 });
 
 document.querySelector('form').addEventListener('focusin', (e) => {
-  const prev = document.querySelector('.msg-validate');
+  const prev = e.target.parentElement.querySelector('.msg-validate');
   if (e.target.tagName !== 'BUTTON' && prev) { prev.remove(); }
 });
 
