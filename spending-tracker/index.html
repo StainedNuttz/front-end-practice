@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous"/>
+  <title>Youtility | Your bills, your plan</title>
+</head>
+<style>
+  body {
+    font-family: Lato;
+  }
+  #bill-color:after {
+    content: '^';
+    position: absolute;
+    color: black;
+    top: 0;
+    left: 0;
+  }
+  select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none
+  }
+</style>
+<body class="overflow-x-hidden">
+  <nav class="py-3 bg-green-400 text-white">
+    <div class="container px-2 mx-auto flex justify-between items-center">
+      <h1 class="ml-2 text-2xl tracking-widest">Youtility</h1>
+      <a href="#" class="mr-2 text-2xl"><i class="fas fa-bars"></i></a>
+    </div>
+  </nav>
+  <div class="container mx-auto relative">
+    <div id="alert-list" class="flex my-1 fixed bottom-0 inset-x-0 flex-col-reverse">
+    </div>
+    <div class="px-2 border-b pb-3">
+      <div class="text-xl my-6 font-bold text-center">
+        Your next bill is
+        <div id="next-bill" class="my-1 text-5xl font-light">
+          <span class="text-2xl mr-1">$</span>0</div>
+      </div>
+  
+      <button id="add-bill" class="bg-green-400 hover:bg-green-300 py-2 px-3 block mx-auto text-lg font-bold text-white">
+        <i class="fas mr-3 fa-plus"></i>Add a bill
+      </button>
+    </div>
+
+    <div id="add-bill-prompt" class="my-2 pl-3 pr-3 border-b pb-4 hidden">
+      <form class="space-y-3">
+        <p class="font-bold text-2xl text-center">Add a bill</p>
+        <div class="form-group">
+          <label class="">Name of bill</label>
+          <input id="add-bill-name" type="text" class="focus:outline-none w-full border-b rounded-none border-black py-1 text-green-400 font-bold">
+        </div>
+        <div class="form-group">
+          <label class="">Issuer of bill</label>
+          <input id="add-bill-company" type="text" class="focus:outline-none w-full border-b rounded-none border-black py-1 text-green-400 font-bold">
+        </div>
+        <div class="form-group">
+          <label class="">Amount to pay</label>
+          <input id="add-bill-price" type="text" class="focus:outline-none w-full border-b rounded-none border-black py-1 text-green-400 font-bold">
+        </div>
+        <div class="form-group">
+          <label class="">Icon</label>
+          <select id="add-bill-icon" class="appearance-none focus:outline-none py-1 font-bold w-full text-green-400 bg-white border-b rounded-none border-black">
+            <option hidden selected>Select icon</option>
+            <option value="fa-burn">Gas</option>
+            <option value="fa-bolt">Electricity</option>
+            <option value="fa-tint">Water</option>
+            <option value="fa-heart">Love heart</option>
+            <option value="fa-tachometer-alt">Tachometer</option>
+            <option value="fa-wifi">Wifi</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="">Color</label>
+          <select id="add-bill-color" class="appearance-none focus:outline-none py-1 font-bold w-full text-green-400 bg-white border-b rounded-none border-black">
+            <option hidden selected>Select color</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="yellow">Yellow</option>
+            <option value="pink">Pink</option>
+            <option value="purple">Purple</option>
+          </select>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button id="add-bill-create" class="bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4">Create</button>
+          <button id="add-bill-discard" class="bg-red-400 hover:bg-red-300 text-white font-bold py-2 px-4">Discard</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="px-2 mt-3">
+        <ul id="bills" class="flex flex-col space-y-1.5">
+        </ul>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

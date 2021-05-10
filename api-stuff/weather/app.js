@@ -13,6 +13,13 @@ function initApp() {
       .then(d => {
         weather.getWeather()
           .then(d => {
+            // "Clear": "from-blue-500 to-blue-400 text-white",
+            //   "Clouds": "from-white via-blue-400 to-blue-400",
+            //     "Snow": "from-gray-300 to-blue-300",
+            //       "50d": "from-red-900 via-yellow-600 to-gray-900 text-gray-100",
+            //         "Thunderstorm": "from-black via-gray-700 to-blue-400 text-gray-200",
+            //           "Drizzle": "from-gray-200 via-blue-300 to-blue-500",
+            //             "Rain"
             ui.displayToday({
               temp: d.current.temp,
               desc: d.current.weather[0].description,
