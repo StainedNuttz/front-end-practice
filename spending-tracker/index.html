@@ -43,12 +43,18 @@
       <div class="text-xl my-6 font-bold text-center">
         Your next bill is
         <div id="next-bill" class="my-1 text-5xl font-light">
-          <span class="text-2xl mr-1">$</span>0</div>
+          <span class="text-2xl mr-1">$</span><span id="bill-value">0</span></div>
       </div>
   
-      <button id="add-bill" class="bg-green-400 hover:bg-green-300 py-2 px-3 block mx-auto text-lg font-bold text-white">
-        <i class="fas mr-3 fa-plus"></i>Add a bill
-      </button>
+      <div class="flex justify-center space-x-2">
+        <button id="prompt-show" class="bg-green-400 hover:bg-green-300 hidden py-2 px-3 text-lg font-bold text-white">
+          <i class="fas mr-3 fa-plus"></i>Add a bill
+        </button>
+        <button id="prompt-hide" class="bg-red-400 hover:bg-red-300 hidden py-2 px-3 text-lg font-bold text-white">Discard</button>
+        <button id="prompt-back" class="bg-gray-500 hover:bg-gray-400 hidden py-2 px-3 text-lg font-bold text-white">
+          <i class="fas mr-3 fas fa-backspace"></i>Back
+        </button>
+      </div>
     </div>
 
     <div id="add-bill-prompt" class="my-2 pl-3 pr-3 border-b pb-4 hidden">
@@ -90,16 +96,21 @@
             <option value="purple">Purple</option>
           </select>
         </div>
-        <div class="flex items-center space-x-2">
-          <button id="add-bill-create" class="bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4">Create</button>
-          <button id="add-bill-discard" class="bg-red-400 hover:bg-red-300 text-white font-bold py-2 px-4">Discard</button>
+        <div class="flex">
+          <button id="prompt-edit" class="bg-yellow-400 hover:bg-yellow-300 mr-1 text-white font-bold py-2 px-4 w-full">
+            <i class="fas mr-3 fa-pencil-alt"></i>Save
+          </button>
+          <button id="prompt-delete" class="bg-red-400 hover:bg-red-300 ml-1 text-white font-bold py-2 px-4 w-full">
+            <i class="fas mr-3 fa-times"></i>Delete
+          </button>
+          <button id="prompt-create" class="bg-green-400 hover:bg-green-300 text-white font-bold py-2 px-4 w-full">Create</button>
         </div>
       </form>
     </div>
 
-    <div class="px-2 mt-3">
-        <ul id="bills" class="flex flex-col space-y-1.5">
-        </ul>
+    <div class="px-2 mt-3 mb-2">
+      <ul id="bills" class="flex flex-col space-y-1.5">
+      </ul>
     </div>
   </div>
   <script src="app.js"></script>

@@ -11,13 +11,49 @@ const BillController = (() => {
   
   const currentBills = {
     items: [
-      { id: 0, name: 'Cutie Tax', company: 'Baby Girl', price: 300, icon: 'fa-heart', color: 'pink' }
+      { id: 1, name: 'Cutie Tax', company: 'Baby Girl', price: 300, icon: 'fa-heart', color: 'pink' }
     ],
     current: null,
     totalPay: 0
   }
+  
+  const deleteBill = id => {
+    const billToDelete = getBillById(id);
+    currentBills.items.splice(billToDelete.index, 1);
+    currentBills.totalPay -= parseInt(billToDelete.bill.price);
+  }
 
-  const updateTotalPay = () => {
+  const editBill = (id, data) => {
+    const billToEdit = getBillById(id);
+    currentBills.totalPay -= parseInt(billToEdit.bill.price);
+
+    const newBill = new Bill(id, data.name, data.company, data.price, data.icon, data.color);
+    currentBills.items[billToEdit.index] = newBill;
+    currentBills.totalPay += parseInt(data.price);
+
+    return newBill;
+  }
+
+  const getBillById = (id) => {
+    id = parseInt(id);
+    let bill = null;
+    let index;
+
+    for (index = 0; index < currentBills.items.length; index++) {
+      if (currentBills.items[index].id !== null && currentBills.items[index].id === id) {
+        bill = currentBills.items[index];
+        break;
+      }
+    }
+
+    return {
+      bill,
+      index
+    }
+  }
+
+  // usually used for initializing bill value upon load
+  const refreshBillValue = () => {
     let total = 0;
     currentBills.items.forEach(i => {
       total += i.price;
@@ -26,7 +62,7 @@ const BillController = (() => {
   }
 
   function* genNewID() {
-    let index = 0;
+    let index = 1;
     while (true) {
       yield index++;
     }
@@ -35,11 +71,15 @@ const BillController = (() => {
   const newID = genNewID();
 
   return {
-    updateTotalPay,
+    refreshBillValue,
     logBillData: () => currentBills,
-    getTotalPay: () => currentBills.totalPay,
-    getCurrentBill: () => currentBills.current,
+    getBillById,
+    getBillValue: () => currentBills.totalPay,
+    getCurrentEditingBill: () => currentBills.current,
+    setCurrentEditingBill: c => { currentBills.current = c },
     getBills: () => currentBills.items,
+    editBill,
+    deleteBill,
     addBill: (name, company, price, icon, color) => {
       const newBill = new Bill(newID.next().value, name, company, price, icon, color);
       currentBills.items.push(newBill);
@@ -56,8 +96,18 @@ const UI = (() => {
     alertList: '#alert-list',
     billList: '#bills',
     nextBill: '#next-bill',
-    addBill: '#add-bill',
+    currentBillValue: '#bill-value',
+
     addBillPrompt: '#add-bill-prompt',
+
+    // prompt buttons
+    showAddBillPrompt: '#prompt-show',
+    hideAddBillPrompt: '#prompt-hide',
+    editAddBillPrompt: '#prompt-edit',
+    backAddBillPrompt: '#prompt-back',
+    createAddBillPrompt: '#prompt-create',
+    deleteAddBillPrompt: '#prompt-delete',
+
     addBillPromptInputs: {
       name: '#add-bill-name',
       company: '#add-bill-company',
@@ -65,8 +115,6 @@ const UI = (() => {
       icon: '#add-bill-icon',
       color: '#add-bill-color',
     },
-    addBillPromptCreate: '#add-bill-create',
-    addBillPromptDiscard: '#add-bill-discard'
   }
 
   const validations = {
@@ -92,12 +140,12 @@ const UI = (() => {
   }
 
   const validateError = (input, msg) => {
+    input.classList.add('border-red-400');
+    input.classList.remove('border-green-400');
     if (!input.parentElement.querySelector('.input-error')) {
       const alert = document.createElement('span');
       alert.className = 'input-error text-red-400 text-xs';
       alert.textContent = msg;
-      input.classList.add('border-red-400');
-      input.classList.remove('border-green-400');
       input.parentElement.appendChild(alert);
     }
   }
@@ -115,8 +163,13 @@ const UI = (() => {
     }
   }
 
-  const validateInputs = (inputs) => {
-    inputs.forEach(i => validateSingleInput(i));
+  const getInputValues = () => {
+    const inputs = getInputs();
+    let output = {};
+    for (let i in inputs) {
+      output[i] = inputs[i].value;
+    }
+    return output;
   }
 
   const getInputs = () => {
@@ -125,6 +178,39 @@ const UI = (() => {
       elements[inp] = document.querySelector(uiElements.addBillPromptInputs[inp]);
     }
     return elements;
+  }
+
+  const refreshBillValue = () => {
+    document.querySelector(UI.elements.currentBillValue).textContent = BillController.getBillValue();
+  }
+
+  const deletePopulatedBill = id => {
+    const ul = document.querySelector(uiElements.billList);
+    ul.querySelector(`#bill-${id}`).remove();
+    refreshBillValue();
+  }
+
+  const editPopulatedBill = (id, newBillData) => {
+    const ul = document.querySelector(uiElements.billList);
+    const billElement = ul.querySelector(`#bill-${id}`);
+    billElement.outerHTML = `
+      <li id="bill-${newBillData.id}" class="bg-${newBillData.color}-100 px-2 py-2 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <i class="text-${newBillData.color}-500 w-8 text-center text-3xl fas ${newBillData.icon}"></i>
+              <div>
+                <span class="text-${newBillData.color}-700 font-bold text-lg tracking-wider">${newBillData.name}</span>
+                <span class="text-${newBillData.color}-500 block text-sm">${newBillData.company}</span>
+              </div>
+            </div>
+          <div class="">
+              <span class="text-${newBillData.color}-700 font-bold">$${newBillData.price}</span>
+              <div class="text-sm text-right text-${newBillData.color}-500">
+                <a href="#" class="hover:text-${newBillData.color}-400">Edit</a>
+              </div>
+          </div>
+          </li>
+    `;
+    refreshBillValue();
   }
 
   const populate = bill => {
@@ -146,6 +232,7 @@ const UI = (() => {
           </div>
           </li>
         `;
+    refreshBillValue();
   }
 
   const alert = (color, msg) => {
@@ -155,16 +242,103 @@ const UI = (() => {
       </div>`;
     document.querySelector(uiElements.alertList).insertAdjacentHTML('afterbegin', html);
   }
+
+  const clearInputs = () => {
+    const inputs = UI.getInputs();
+    for (let i in inputs) {
+      const inp = inputs[i];
+      const error = inp.parentElement.querySelector('.input-error');
+      if (error) { error.remove() }
+
+      // clear inputs and border colors
+      inp.value = '';
+      inp.classList.remove('border-green-400');
+      inp.classList.remove('border-red-400');
+    }
+    inputs.icon.value = inputs.icon.options[0].value;
+    inputs.color.value = inputs.color.options[0].value;
+  }
+
+  const validateInputs = () => {
+    const inputs = UI.getInputs();
+    const arr = [inputs.name, inputs.company, inputs.price];
+    arr.forEach(i => validateSingleInput(i));
+
+    if (inputs.color.value === 'Select color') {
+      UI.validateError(inputs.color, 'Please select a color')
+    } else {
+      UI.validateSuccess(inputs.color);
+    }
+    if (inputs.icon.value === 'Select icon') {
+      UI.validateError(inputs.icon, 'Please select an icon')
+    } else {
+      UI.validateSuccess(inputs.icon);
+    }
+  }
+
+  const show = e => {
+    document.querySelector(e).classList.remove('hidden');
+  }
+  const hide = e => {
+    document.querySelector(e).classList.add('hidden');
+  }
+
+  // EDIT STATE
+  const stateDefault = () => {
+    UI.clearInputs();
+    // show
+    show(UI.elements.showAddBillPrompt);
+    // hide
+    hide(UI.elements.hideAddBillPrompt);
+    hide(UI.elements.addBillPrompt);
+    hide(UI.elements.editAddBillPrompt);
+    hide(UI.elements.backAddBillPrompt);
+    hide(UI.elements.deleteAddBillPrompt);
+    hide(UI.elements.createAddBillPrompt);
+  }
+
+  const stateAddBill = () => {
+    // show
+    show(UI.elements.addBillPrompt);
+    show(UI.elements.createAddBillPrompt);
+    show(UI.elements.hideAddBillPrompt);
+    // hide
+    hide(UI.elements.showAddBillPrompt);
+    hide(UI.elements.editAddBillPrompt);
+    hide(UI.elements.backAddBillPrompt);
+    hide(UI.elements.deleteAddBillPrompt);
+  }
+
+  const stateEditBill = () => {
+    // show
+    stateAddBill();
+    show(UI.elements.editAddBillPrompt);
+    show(UI.elements.backAddBillPrompt);
+    show(UI.elements.deleteAddBillPrompt);
+    // hide
+    hide(UI.elements.hideAddBillPrompt);
+    hide(UI.elements.createAddBillPrompt);
+  }
   
   return {
     elements: uiElements,
+    hide,
+    show,
     alert,
     populate,
+    editPopulatedBill,
+    deletePopulatedBill,
+    refreshBillValue,
     getInputs,
+    getInputValues,
     validateInputs,
     validateSingleInput,
     validateError,
     validateSuccess,
+    stateDefault,
+    stateAddBill,
+    stateEditBill,
+    clearInputs,
     populateBillsList: bills => {
       bills.forEach((b) => {
         populate(b);
@@ -180,23 +354,14 @@ const Storage = (() => {
 const App = ((BillController, UI, Storage) => {
   return {
     initApp: () => {
-      console.log('App initializing...');
-
+      UI.stateDefault();
       // get bills and populate UI
       const bills = BillController.getBills();
       UI.populateBillsList(bills);
-
-      // init total pay amount
-      BillController.updateTotalPay();
-      document.querySelector(UI.elements.nextBill).textContent = BillController.getTotalPay();
-
-      // clear input fields
-      const inputs = UI.getInputs();
-      for (let i in inputs) {
-        inputs[i].value = '';
-      }
-      inputs.icon.value = inputs.icon.options[0].value;
-      inputs.color.value = inputs.color.options[0].value;
+      // clear inputs
+      // init total bill amount
+      BillController.refreshBillValue();
+      document.querySelector(UI.elements.currentBillValue).textContent = BillController.getBillValue();
     }
   }
 })(BillController, UI, Storage);
@@ -209,58 +374,87 @@ App.initApp();
 
 // VALIDATE WHEN LOSING FOCUS OF INPUT
 document.querySelector(UI.elements.addBillPrompt).addEventListener('focusout', e => {
-  UI.validateSingleInput(e.target);
+  if (e.target.tagName === 'INPUT') { UI.validateSingleInput(e.target) }
 });
 
-// BUTTON: SHOW PROMPT
-document.querySelector(UI.elements.addBill).addEventListener('click', e => {
-  document.querySelector(UI.elements.addBillPrompt).classList.remove('hidden');
-
-  e.preventDefault();
-});
-
-// BUTTON: CREATE BILL FROM INPUTS
-document.querySelector(UI.elements.addBillPromptCreate).addEventListener('click', e => {
+// BUTTON: CREATE ACTUAL BILL FROM INPUTS
+// VALIDATE INPUTS
+document.querySelector(UI.elements.createAddBillPrompt).addEventListener('click', e => {
   // validate inputs
+  UI.validateInputs();
   const inputs = UI.getInputs();
-  UI.validateInputs([
-    inputs.name,
-    inputs.company,
-    inputs.price
-  ]);
-
-  if (inputs.color.value === 'Select color') {
-    UI.validateError(inputs.color, 'Please select a color')
-  } else {
-    UI.validateSuccess(inputs.color);
-  }
-  if (inputs.icon.value === 'Select icon') {
-    UI.validateError(inputs.icon, 'Please select an icon')
-  } else {
-    UI.validateSuccess(inputs.icon);
-  }
-
+  
   // SUCCESSFUL VALIDATION
   if (!document.querySelector('.input-error')) {
     // add input data into currentBills data structure
     const newBill = BillController.addBill(inputs.name.value, inputs.company.value, inputs.price.value, inputs.icon.value, inputs.color.value);
     // add created bill to UI
     UI.populate(newBill);
-    // update total pay amount in UI
-    document.querySelector(UI.elements.nextBill).textContent = BillController.getTotalPay();
+    UI.refreshBillValue();
     // hide prompt
-    document.querySelector(UI.elements.addBillPrompt).classList.add('hidden');
+    UI.stateDefault();
     // alert user
-    UI.alert('green', 'New bill added!');
+    UI.alert('green', 'New bill added');
   }
 
   e.preventDefault();
 });
 
-// BUTTON: HIDE PROMPT
-document.querySelector(UI.elements.addBillPromptDiscard).addEventListener('click', e => {
-  document.querySelector(UI.elements.addBillPrompt).classList.add('hidden');
+// BILL: EDIT BILL
+document.querySelector(UI.elements.billList).addEventListener('click', e => {
+  if (e.target.tagName === 'A') {
+    const billToEdit = BillController.getBillById
+      (e.target.parentElement.parentElement.parentElement.id.split('-')[1]).bill;
+    if (!billToEdit) { return }
 
+    BillController.setCurrentEditingBill(billToEdit);
+    UI.stateEditBill();
+    const inputs = UI.getInputs();
+    for (let i in inputs) {
+      inputs[i].value = billToEdit[i];
+    }
+  }
+  e.preventDefault();
+});
+
+// VALIDATE INPUTS FOR SELECT INPUTS
+document.querySelector(UI.elements.addBillPrompt).addEventListener('change', e => {
+  UI.validateSuccess(e.target);
+  e.preventDefault();
+})
+
+// BILL: SHOW PROMPT
+document.querySelector(UI.elements.showAddBillPrompt).addEventListener('click', UI.stateAddBill);
+
+// BILL: GO BACK
+document.querySelector(UI.elements.backAddBillPrompt).addEventListener('click', e => {
+  BillController.setCurrentEditingBill(null);
+  UI.stateDefault();
+});
+
+// BILL: HIDE PROMPT
+document.querySelector(UI.elements.hideAddBillPrompt).addEventListener('click', UI.stateDefault);
+
+// BILL: SAVE EDIT BILL
+document.querySelector(UI.elements.editAddBillPrompt).addEventListener('click', e => {
+  UI.validateInputs();
+  if (!document.querySelector('.input-error')) {
+    const current = BillController.getCurrentEditingBill().id;
+    const newBill = BillController.editBill(current, UI.getInputValues());
+    UI.editPopulatedBill(current, newBill);
+    UI.stateDefault();
+    UI.alert('yellow', 'Bill edited');
+  }
+  e.preventDefault();
+});
+
+// BILL: DELETE THE BILL BITCH
+document.querySelector(UI.elements.deleteAddBillPrompt).addEventListener('click', e => {
+  const billToDelete = BillController.getCurrentEditingBill();
+  BillController.deleteBill(billToDelete.id);
+  UI.deletePopulatedBill(billToDelete.id);
+  UI.stateDefault();
+  UI.alert('red', 'Bill deleted');
   e.preventDefault();
 });
 
