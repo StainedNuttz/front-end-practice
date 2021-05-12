@@ -20,16 +20,17 @@ const BillController = (() => {
   const deleteBill = id => {
     const billToDelete = getBillById(id);
     currentBills.items.splice(billToDelete.index, 1);
-    currentBills.totalPay -= parseInt(billToDelete.bill.price);
+    currentBills.totalPay -= parseFloat(billToDelete.bill.price);
   }
 
   const editBill = (id, data) => {
     const billToEdit = getBillById(id);
-    currentBills.totalPay -= parseInt(billToEdit.bill.price);
+    console.log('bill price', data.price);
+    currentBills.totalPay -= parseFloat(billToEdit.bill.price);
 
     const newBill = new Bill(id, data.name, data.company, data.price, data.icon, data.color);
     currentBills.items[billToEdit.index] = newBill;
-    currentBills.totalPay += parseInt(data.price);
+    currentBills.totalPay += parseFloat(data.price);
 
     return newBill;
   }
@@ -83,7 +84,7 @@ const BillController = (() => {
     addBill: (name, company, price, icon, color) => {
       const newBill = new Bill(newID.next().value, name, company, price, icon, color);
       currentBills.items.push(newBill);
-      currentBills.totalPay += parseInt(price);
+      currentBills.totalPay += parseFloat(price);
       return newBill;
     }
   }
@@ -116,6 +117,8 @@ const UI = (() => {
       color: '#add-bill-color',
     },
   }
+
+  const formatPrice = Intl.NumberFormat('en-GB', { minimumFractionDigits: 2 });
 
   const validations = {
     '#add-bill-name': {
@@ -181,7 +184,7 @@ const UI = (() => {
   }
 
   const refreshBillValue = () => {
-    document.querySelector(UI.elements.currentBillValue).textContent = BillController.getBillValue();
+    document.querySelector(UI.elements.currentBillValue).textContent = formatPrice.format(BillController.getBillValue());
   }
 
   const deletePopulatedBill = id => {
@@ -203,7 +206,7 @@ const UI = (() => {
               </div>
             </div>
           <div class="">
-              <span class="text-${newBillData.color}-700 font-bold">$${newBillData.price}</span>
+              <span class="text-${newBillData.color}-700 font-bold">$${formatPrice.format(newBillData.price)}</span>
               <div class="text-sm text-right text-${newBillData.color}-500">
                 <a href="#" class="hover:text-${newBillData.color}-400">Edit</a>
               </div>
@@ -225,7 +228,7 @@ const UI = (() => {
               </div>
             </div>
           <div class="">
-              <span class="text-${bill.color}-700 font-bold">$${bill.price}</span>
+              <span class="text-${bill.color}-700 font-bold">$${formatPrice.format(bill.price)}</span>
               <div class="text-sm text-right text-${bill.color}-500">
                 <a href="#" class="hover:text-${bill.color}-400">Edit</a>
               </div>
@@ -361,7 +364,7 @@ const App = ((BillController, UI, Storage) => {
       // clear inputs
       // init total bill amount
       BillController.refreshBillValue();
-      document.querySelector(UI.elements.currentBillValue).textContent = BillController.getBillValue();
+      UI.refreshBillValue();
     }
   }
 })(BillController, UI, Storage);
@@ -441,6 +444,7 @@ document.querySelector(UI.elements.editAddBillPrompt).addEventListener('click', 
   if (!document.querySelector('.input-error')) {
     const current = BillController.getCurrentEditingBill().id;
     const newBill = BillController.editBill(current, UI.getInputValues());
+    console.log(newBill)
     UI.editPopulatedBill(current, newBill);
     UI.stateDefault();
     UI.alert('yellow', 'Bill edited');
