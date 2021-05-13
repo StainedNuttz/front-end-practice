@@ -10,24 +10,21 @@ const BillController = (() => {
   }
   
   const currentBills = {
-    items: [
-      { id: 1, name: 'Cutie Tax', company: 'Baby Girl', price: 300, icon: 'fa-heart', color: 'pink' }
-    ],
+    items: [],
     current: null,
     totalPay: 0
   }
   
-  const deleteBill = id => {
+  const deleteBillFromList = id => {
     const billToDelete = getBillById(id);
     currentBills.items.splice(billToDelete.index, 1);
     currentBills.totalPay -= parseFloat(billToDelete.bill.price);
   }
 
-  const editBill = (id, data) => {
+  const editBillInList = (id, data) => {
     const billToEdit = getBillById(id);
-    console.log('bill price', data.price);
     currentBills.totalPay -= parseFloat(billToEdit.bill.price);
-
+    
     const newBill = new Bill(id, data.name, data.company, data.price, data.icon, data.color);
     currentBills.items[billToEdit.index] = newBill;
     currentBills.totalPay += parseFloat(data.price);
@@ -39,27 +36,16 @@ const BillController = (() => {
     id = parseInt(id);
     let bill = null;
     let index;
-
     for (index = 0; index < currentBills.items.length; index++) {
       if (currentBills.items[index].id !== null && currentBills.items[index].id === id) {
         bill = currentBills.items[index];
         break;
       }
     }
-
     return {
       bill,
       index
     }
-  }
-
-  // usually used for initializing bill value upon load
-  const refreshBillValue = () => {
-    let total = 0;
-    currentBills.items.forEach(i => {
-      total += i.price;
-    });
-    currentBills.totalPay = total;
   }
 
   function* genNewID() {
@@ -72,20 +58,20 @@ const BillController = (() => {
   const newID = genNewID();
 
   return {
-    refreshBillValue,
     logBillData: () => currentBills,
     getBillById,
     getBillValue: () => currentBills.totalPay,
     getCurrentEditingBill: () => currentBills.current,
+    getBillList: () => currentBills.items,
     setCurrentEditingBill: c => { currentBills.current = c },
-    getBills: () => currentBills.items,
-    editBill,
-    deleteBill,
-    addBill: (name, company, price, icon, color) => {
-      const newBill = new Bill(newID.next().value, name, company, price, icon, color);
-      currentBills.items.push(newBill);
-      currentBills.totalPay += parseFloat(price);
-      return newBill;
+    editBillInList,
+    deleteBillFromList,
+    addToBillList: bill => {
+      currentBills.items.push(bill);
+      currentBills.totalPay += parseFloat(bill.price);
+    },
+    createBill: (name, company, price, icon, color) => {
+      return new Bill(newID.next().value, name, company, price, icon, color);
     }
   }
 
@@ -239,11 +225,13 @@ const UI = (() => {
   }
 
   const alert = (color, msg) => {
-    const html = `<div class="bg-${color}-200 p-2 mx-2 my-0.5 text-${color}-600 font-bold flex items-center justify-between alert">
+    const div = document.createElement('div');
+    div.innerHTML = `<div class="bg-${color}-200 p-2 mx-2 my-0.5 text-${color}-600 font-bold flex items-center justify-between alert">
         ${msg}
         <i class="alert-close mr-2 cursor-pointer fas fa-times"></i>
       </div>`;
-    document.querySelector(uiElements.alertList).insertAdjacentHTML('afterbegin', html);
+    document.querySelector(uiElements.alertList).appendChild(div);
+    setTimeout(() => div.remove(), 10000);
   }
 
   const clearInputs = () => {
@@ -350,24 +338,56 @@ const UI = (() => {
   }
 })();
 
-const Storage = (() => {
+const BillStorage = (() => {
 
+  return {
+    /**
+      * Returns the array of Bill objects from local storage.
+      * 
+      * If there is no local storage available, set it up instead and return an empty array.
+      * 
+      * @returns {Array} An array of bills 
+    */
+    getFromStorage: function() {
+      // if local storage has data
+      const ls = localStorage.getItem('bills');
+      if (ls) {
+        console.log('data retrieved from storage, no initialization needed');
+        return JSON.parse(ls);
+      }
+
+      // init local storage instead
+      console.log("data doesn't exist, storage initialized");
+      localStorage.setItem('bills', JSON.stringify([]));
+      return [];
+    },
+    /**
+     * Saves current bill list into storage.
+    */
+    saveToStorage: function() {
+      const current = BillController.getBillList();
+      localStorage.setItem('bills', JSON.stringify(current));
+    }
+  }
 })();
 
-const App = ((BillController, UI, Storage) => {
+const App = ((BillController, UI, BillStorage) => {
   return {
     initApp: () => {
+      // start off by setting the default UI state
       UI.stateDefault();
-      // get bills and populate UI
-      const bills = BillController.getBills();
+      // get bills 
+      const bills = BillStorage.getFromStorage();
+      bills.forEach(b => BillController.addToBillList(b));
+      // populate UI with bills
       UI.populateBillsList(bills);
       // clear inputs
-      // init total bill amount
-      BillController.refreshBillValue();
+      UI.clearInputs();
+      // initialize and refresh the total bill value for the UI
       UI.refreshBillValue();
     }
   }
-})(BillController, UI, Storage);
+})(BillController, UI, BillStorage);
 
 // -------------------------------------------------------------
 // init the app
@@ -390,7 +410,9 @@ document.querySelector(UI.elements.createAddBillPrompt).addEventListener('click'
   // SUCCESSFUL VALIDATION
   if (!document.querySelector('.input-error')) {
     // add input data into currentBills data structure
-    const newBill = BillController.addBill(inputs.name.value, inputs.company.value, inputs.price.value, inputs.icon.value, inputs.color.value);
+    const newBill = BillController.createBill(inputs.name.value, inputs.company.value, inputs.price.value, inputs.icon.value, inputs.color.value);
+    BillController.addToBillList(newBill);
+    BillStorage.saveToStorage();
     // add created bill to UI
     UI.populate(newBill);
     UI.refreshBillValue();
@@ -443,8 +465,8 @@ document.querySelector(UI.elements.editAddBillPrompt).addEventListener('click', 
   UI.validateInputs();
   if (!document.querySelector('.input-error')) {
     const current = BillController.getCurrentEditingBill().id;
-    const newBill = BillController.editBill(current, UI.getInputValues());
-    console.log(newBill)
+    const newBill = BillController.editBillInList(current, UI.getInputValues());
+    BillStorage.saveToStorage();
     UI.editPopulatedBill(current, newBill);
     UI.stateDefault();
     UI.alert('yellow', 'Bill edited');
@@ -455,7 +477,8 @@ document.querySelector(UI.elements.editAddBillPrompt).addEventListener('click', 
 // BILL: DELETE THE BILL BITCH
 document.querySelector(UI.elements.deleteAddBillPrompt).addEventListener('click', e => {
   const billToDelete = BillController.getCurrentEditingBill();
-  BillController.deleteBill(billToDelete.id);
+  BillController.deleteBillFromList(billToDelete.id);
+  BillStorage.saveToStorage();
   UI.deletePopulatedBill(billToDelete.id);
   UI.stateDefault();
   UI.alert('red', 'Bill deleted');
